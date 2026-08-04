@@ -9,7 +9,6 @@
 
 <title>ILUL STORE | Toko Online</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 
@@ -24,19 +23,14 @@ font-family:Poppins,sans-serif;
 
 
 body{
-
 background:#0a0a0a;
 color:white;
-
 }
 
 
 html{
-
 scroll-behavior:smooth;
-
 }
-
 
 
 /* HEADER */
@@ -60,7 +54,6 @@ box-shadow:0 0 20px black;
 }
 
 
-
 .logo{
 
 font-size:35px;
@@ -81,15 +74,11 @@ font-weight:bold;
 }
 
 
-
 nav a:hover{
 
 color:#ffd700;
 
 }
-
-
-
 
 
 
@@ -121,12 +110,9 @@ background-size:cover;
 
 background-position:center;
 
-
 border-bottom:5px solid gold;
 
-
 }
-
 
 
 
@@ -137,7 +123,6 @@ font-size:70px;
 color:#ffd700;
 
 text-shadow:
-
 0 0 15px gold,
 0 0 30px orange;
 
@@ -174,14 +159,11 @@ text-decoration:none;
 }
 
 
-
 .btn:hover{
 
 background:white;
 
 }
-
-
 
 
 
@@ -212,7 +194,6 @@ border:none;
 font-size:18px;
 
 }
-
 
 
 
@@ -264,8 +245,6 @@ background:white;
 
 
 
-
-
 .title{
 
 text-align:center;
@@ -280,7 +259,7 @@ margin:50px 0 30px;
 
 
 
-
+/* RESPONSIVE */
 
 
 @media(max-width:700px){
@@ -291,7 +270,6 @@ header{
 flex-direction:column;
 
 }
-
 
 
 nav{
@@ -311,7 +289,6 @@ font-size:40px;
 }
 
 
-
 </style>
 
 
@@ -319,9 +296,6 @@ font-size:40px;
 
 
 <body>
-
-
-
 
 
 <header>
@@ -347,6 +321,16 @@ Produk
 </a>
 
 
+<a href="#keranjang">
+Keranjang
+</a>
+
+
+<a href="#checkout">
+Checkout
+</a>
+
+
 <a href="#cara">
 Cara Belanja
 </a>
@@ -366,8 +350,6 @@ Kontak
 
 
 
-
-
 <section class="banner" id="home">
 
 
@@ -375,23 +357,17 @@ Kontak
 
 
 <h1>
-
 ILUL STORE
-
 </h1>
 
 
 <p>
-
 Belanja Online Mudah, Cepat & Terpercaya
-
 </p>
 
 
 <a href="#produk" class="btn">
-
 Mulai Belanja
-
 </a>
 
 
@@ -404,16 +380,12 @@ Mulai Belanja
 
 
 
-
-
 <div class="search">
 
 
 <input 
 id="cariProduk"
-
 onkeyup="cariProduk()"
-
 placeholder="🔍 Cari produk ILUL STORE..."
 >
 
@@ -424,39 +396,42 @@ placeholder="🔍 Cari produk ILUL STORE..."
 
 
 
-
-
 <div class="kategori">
 
 
-<button>
+<button onclick="filterKategori('all')">
+Semua
+</button>
+
+
+<button onclick="filterKategori('fashion')">
 Fashion
 </button>
 
 
-<button>
+<button onclick="filterKategori('sepatu')">
 Sepatu
 </button>
 
 
-<button>
+<button onclick="filterKategori('tas')">
 Tas
 </button>
 
 
-<button>
+<button onclick="filterKategori('elektronik')">
 Elektronik
 </button>
 
 
-<button>
+<button onclick="filterKategori('aksesoris')">
 Aksesoris
 </button>
 
 
 </div>
 <!-- =========================
-     PRODUK
+     PRODUK ILUL STORE
 ========================= -->
 
 
@@ -473,7 +448,9 @@ Aksesoris
 
 
 
-<div class="produk">
+<!-- PRODUK 1 -->
+
+<div class="produk" data-kategori="fashion">
 
 
 <span class="badge">
@@ -481,9 +458,7 @@ Aksesoris
 </span>
 
 
-
 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
-
 
 
 <h2>
@@ -501,7 +476,6 @@ Kaos cotton premium nyaman dipakai.
 </p>
 
 
-
 <del>
 Rp100.000
 </del>
@@ -512,17 +486,14 @@ Rp75.000
 </h2>
 
 
-
 <p>
-📦 Stok tersedia: 25
+📦 Stok : 25
 </p>
-
 
 
 <button onclick="tambahKeranjang('Kaos Premium',75000)">
 🛒 Tambah Keranjang
 </button>
-
 
 
 </div>
@@ -531,11 +502,10 @@ Rp75.000
 
 
 
+<!-- PRODUK 2 -->
 
 
-
-
-<div class="produk">
+<div class="produk" data-kategori="sepatu">
 
 
 <span class="badge diskon">
@@ -543,9 +513,7 @@ Rp75.000
 </span>
 
 
-
 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
-
 
 
 <h2>
@@ -556,7 +524,6 @@ Sepatu Sport
 <div class="rating">
 ⭐⭐⭐⭐⭐
 </div>
-
 
 
 <p>
@@ -574,17 +541,14 @@ Rp250.000
 </h2>
 
 
-
 <p>
-📦 Stok tersedia: 15
+📦 Stok : 15
 </p>
-
 
 
 <button onclick="tambahKeranjang('Sepatu Sport',250000)">
 🛒 Tambah Keranjang
 </button>
-
 
 
 </div>
@@ -593,11 +557,10 @@ Rp250.000
 
 
 
+<!-- PRODUK 3 -->
 
 
-
-
-<div class="produk">
+<div class="produk" data-kategori="tas">
 
 
 <span class="badge baru">
@@ -605,16 +568,12 @@ Rp250.000
 </span>
 
 
-
-
 <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62">
-
 
 
 <h2>
 Tas Fashion
 </h2>
-
 
 
 <div class="rating">
@@ -632,11 +591,9 @@ Rp150.000
 </h2>
 
 
-
 <p>
-📦 Stok tersedia: 20
+📦 Stok : 20
 </p>
-
 
 
 <button onclick="tambahKeranjang('Tas Fashion',150000)">
@@ -650,11 +607,10 @@ Rp150.000
 
 
 
+<!-- PRODUK 4 -->
 
 
-
-
-<div class="produk">
+<div class="produk" data-kategori="aksesoris">
 
 
 <span class="badge">
@@ -662,9 +618,7 @@ Rp150.000
 </span>
 
 
-
 <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-
 
 
 <h2>
@@ -672,11 +626,9 @@ Jam Tangan
 </h2>
 
 
-
 <div class="rating">
 ⭐⭐⭐⭐⭐
 </div>
-
 
 
 <p>
@@ -690,9 +642,8 @@ Rp300.000
 
 
 <p>
-📦 Stok tersedia: 10
+📦 Stok : 10
 </p>
-
 
 
 <button onclick="tambahKeranjang('Jam Tangan',300000)">
@@ -700,51 +651,277 @@ Rp300.000
 </button>
 
 
-
 </div>
 
 
 
 
-</div>
+
+<!-- PRODUK 5 -->
 
 
-</section>
+<div class="produk" data-kategori="fashion">
 
 
-
-
-
-
-
-
-
-<!-- KERANJANG -->
-
-
-<section id="keranjang">
-
-
-<h2 class="title">
-🛒 Keranjang Saya
-</h2>
-
-
-
-<div class="cart-box">
-
-
-<ul id="isiKeranjang">
-
-</ul>
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d">
 
 
 <h2>
-
-Total :
-Rp<span id="total">0</span>
-
+Celana Jeans
 </h2>
+
+
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
+
+
+<p>
+Celana jeans premium bahan stretch.
+</p>
+
+
+<h2 class="harga">
+Rp180.000
+</h2>
+
+
+<p>
+📦 Stok : 18
+</p>
+
+
+<button onclick="tambahKeranjang('Celana Jeans',180000)">
+🛒 Tambah Keranjang
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- PRODUK 6 -->
+
+
+<div class="produk" data-kategori="fashion">
+
+
+<img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3">
+
+
+<h2>
+Hoodie Premium
+</h2>
+
+
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
+
+
+<p>
+Hoodie hangat bahan fleece.
+</p>
+
+
+<h2 class="harga">
+Rp220.000
+</h2>
+
+
+<p>
+📦 Stok : 20
+</p>
+
+
+<button onclick="tambahKeranjang('Hoodie Premium',220000)">
+🛒 Tambah Keranjang
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- PRODUK 7 -->
+
+
+<div class="produk" data-kategori="sepatu">
+
+
+<img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77">
+
+
+<h2>
+Sandal Casual
+</h2>
+
+
+<div class="rating">
+⭐⭐⭐⭐
+</div>
+
+
+<p>
+Sandal nyaman dipakai sehari-hari.
+</p>
+
+
+<h2 class="harga">
+Rp95.000
+</h2>
+
+
+<p>
+📦 Stok : 30
+</p>
+
+
+<button onclick="tambahKeranjang('Sandal Casual',95000)">
+🛒 Tambah Keranjang
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- PRODUK 8 -->
+
+
+<div class="produk" data-kategori="elektronik">
+
+
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+
+
+<h2>
+Headset Bluetooth
+</h2>
+
+
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
+
+
+<p>
+Suara jernih dengan bass mantap.
+</p>
+
+
+<h2 class="harga">
+Rp275.000
+</h2>
+
+
+<p>
+📦 Stok : 15
+</p>
+
+
+<button onclick="tambahKeranjang('Headset Bluetooth',275000)">
+🛒 Tambah Keranjang
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- PRODUK 9 -->
+
+
+<div class="produk" data-kategori="aksesoris">
+
+
+<img src="https://images.unsplash.com/photo-1627123424574-724758594e93">
+
+
+<h2>
+Dompet Kulit
+</h2>
+
+
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
+
+
+<p>
+Dompet kulit premium elegan.
+</p>
+
+
+<h2 class="harga">
+Rp145.000
+</h2>
+
+
+<p>
+📦 Stok : 22
+</p>
+
+
+<button onclick="tambahKeranjang('Dompet Kulit',145000)">
+🛒 Tambah Keranjang
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- PRODUK 10 -->
+
+
+<div class="produk" data-kategori="elektronik">
+
+
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+
+
+<h2>
+Smartphone Mini
+</h2>
+
+
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
+
+
+<p>
+Smartphone ringan dan cepat.
+</p>
+
+
+<h2 class="harga">
+Rp1.500.000
+</h2>
+
+
+<p>
+📦 Stok : 8
+</p>
+
+
+<button onclick="tambahKeranjang('Smartphone Mini',1500000)">
+🛒 Tambah Keranjang
+</button>
+
+
+</div>
 
 
 
@@ -752,21 +929,15 @@ Rp<span id="total">0</span>
 
 
 </section>
-
-
-
-
-
-
-
+<!-- =========================
+     STYLE PRODUK & CHECKOUT
+========================= -->
 
 
 <style>
 
 
-
 .produk-container{
-
 
 display:grid;
 
@@ -775,7 +946,6 @@ grid-template-columns:repeat(4,1fr);
 gap:25px;
 
 padding:20px 8%;
-
 
 }
 
@@ -798,7 +968,6 @@ transition:.4s;
 
 box-shadow:0 0 20px #000;
 
-
 }
 
 
@@ -813,10 +982,7 @@ box-shadow:0 0 25px gold;
 
 
 
-
-
 .produk img{
-
 
 width:100%;
 
@@ -826,10 +992,7 @@ object-fit:cover;
 
 border-radius:15px;
 
-
 }
-
-
 
 
 
@@ -850,7 +1013,6 @@ border-radius:20px;
 
 font-size:12px;
 
-
 }
 
 
@@ -860,6 +1022,7 @@ font-size:12px;
 background:orange;
 
 }
+
 
 
 .baru{
@@ -895,7 +1058,7 @@ background:#ffd700;
 
 border:none;
 
-padding:12px;
+padding:12px 20px;
 
 border-radius:25px;
 
@@ -903,9 +1066,7 @@ font-weight:bold;
 
 cursor:pointer;
 
-
 }
-
 
 
 
@@ -916,6 +1077,10 @@ background:white;
 }
 
 
+
+
+
+/* KERANJANG */
 
 
 .cart-box{
@@ -934,306 +1099,49 @@ border-radius:20px;
 
 
 
-
-@media(max-width:900px){
-
-
-.produk-container{
-
-grid-template-columns:repeat(2,1fr);
-
-}
+.cart-box li{
 
 
-}
+list-style:none;
 
+padding:15px;
 
+border-bottom:1px solid #333;
 
-@media(max-width:600px){
+display:flex;
 
+justify-content:space-between;
 
-.produk-container{
-
-grid-template-columns:1fr;
+align-items:center;
 
 }
 
 
+
+.cart-box button{
+
+
+background:red;
+
+color:white;
+
+border:none;
+
+padding:5px 10px;
+
+border-radius:10px;
+
+cursor:pointer;
+
 }
 
 
-</style>
-<!-- =========================
-     CHECKOUT
-========================= -->
 
 
-<section id="checkout">
 
 
-<h2 class="title">
-📦 Checkout Pesanan
-</h2>
 
-
-
-<div class="checkout-box">
-
-
-
-<h3>
-👤 Data Pembeli
-</h3>
-
-
-
-<input 
-id="nama"
-placeholder="Nama Lengkap"
->
-
-
-
-<input 
-id="nomor"
-placeholder="Nomor WhatsApp"
->
-
-
-
-
-
-<h3>
-📍 Alamat Pengiriman
-</h3>
-
-
-
-<textarea 
-id="alamat"
-placeholder="Alamat lengkap pengiriman">
-</textarea>
-
-
-
-
-
-<h3>
-🚚 Pilih Kurir
-</h3>
-
-
-
-<select id="kurir">
-
-
-<option>
-J&T Express
-</option>
-
-
-<option>
-JNE
-</option>
-
-
-<option>
-SiCepat
-</option>
-
-
-<option>
-AnterAja
-</option>
-
-
-<option>
-POS Indonesia
-</option>
-
-
-</select>
-
-
-
-
-
-
-
-<h3>
-💳 Metode Pembayaran
-</h3>
-
-
-
-<select id="bayar">
-
-
-<option>
-Transfer Bank
-</option>
-
-
-<option>
-DANA / OVO / GoPay
-</option>
-
-
-<option>
-COD (Jika tersedia)
-</option>
-
-
-</select>
-
-
-
-
-
-
-<button 
-class="checkout-btn"
-onclick="checkout()">
-
-✅ Pesan Sekarang via WhatsApp
-
-</button>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- CARA BELANJA -->
-
-
-<section id="cara">
-
-
-<h2 class="title">
-🛒 Cara Berbelanja
-</h2>
-
-
-
-<div class="cara-container">
-
-
-
-<div class="cara-card">
-
-<h2>
-1️⃣ Cari Produk
-</h2>
-
-<p>
-
-Gunakan kolom pencarian untuk menemukan
-produk yang kamu inginkan.
-
-</p>
-
-</div>
-
-
-
-
-<div class="cara-card">
-
-<h2>
-2️⃣ Pilih Produk
-</h2>
-
-<p>
-
-Klik tombol tambah keranjang pada produk
-yang ingin dibeli.
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="cara-card">
-
-<h2>
-3️⃣ Isi Data
-</h2>
-
-<p>
-
-Masukkan nama, nomor WhatsApp,
-dan alamat pengiriman.
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="cara-card">
-
-<h2>
-4️⃣ Pilih Kurir
-</h2>
-
-<p>
-
-Pilih J&T, JNE, SiCepat, atau kurir lainnya.
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="cara-card">
-
-<h2>
-5️⃣ Pembayaran
-</h2>
-
-<p>
-
-Pilih metode pembayaran kemudian
-konfirmasi melalui WhatsApp.
-
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<style>
+/* CHECKOUT */
 
 
 .checkout-box{
@@ -1282,7 +1190,6 @@ height:120px;
 
 
 
-
 .checkout-btn{
 
 
@@ -1309,7 +1216,6 @@ cursor:pointer;
 
 
 
-
 .checkout-btn:hover{
 
 background:#009624;
@@ -1320,58 +1226,10 @@ background:#009624;
 
 
 
-.cara-container{
-
-
-display:grid;
-
-grid-template-columns:repeat(5,1fr);
-
-gap:20px;
-
-padding:20px 8%;
-
-
-}
-
-
-
-
-
-.cara-card{
-
-
-background:#151515;
-
-padding:25px;
-
-border-radius:20px;
-
-text-align:center;
-
-
-}
-
-
-
-
-
-.cara-card h2{
-
-
-color:#ffd700;
-
-font-size:20px;
-
-
-}
-
-
-
 @media(max-width:900px){
 
 
-.cara-container{
+.produk-container{
 
 grid-template-columns:repeat(2,1fr);
 
@@ -1385,7 +1243,7 @@ grid-template-columns:repeat(2,1fr);
 @media(max-width:600px){
 
 
-.cara-container{
+.produk-container{
 
 grid-template-columns:1fr;
 
@@ -1397,6 +1255,355 @@ grid-template-columns:1fr;
 
 
 </style>
+
+
+
+
+
+
+
+<!-- =========================
+     KERANJANG
+========================= -->
+
+
+<section id="keranjang">
+
+
+<h2 class="title">
+🛒 Keranjang Saya
+</h2>
+
+
+
+<div class="cart-box">
+
+
+<ul id="isiKeranjang">
+
+</ul>
+
+
+
+<h2>
+
+Total :
+Rp<span id="total">0</span>
+
+</h2>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =========================
+     CHECKOUT
+========================= -->
+
+
+<section id="checkout">
+
+
+<h2 class="title">
+📦 Checkout Pesanan
+</h2>
+
+
+
+<div class="checkout-box">
+
+
+
+<h3>
+👤 Data Pembeli
+</h3>
+
+
+
+<input 
+id="nama"
+placeholder="Nama Lengkap"
+>
+
+
+
+<input 
+id="nomor"
+placeholder="Nomor WhatsApp"
+>
+
+
+
+
+<h3>
+📍 Alamat Pengiriman
+</h3>
+
+
+
+<textarea 
+id="alamat"
+placeholder="Alamat lengkap pengiriman">
+</textarea>
+
+
+
+
+
+<h3>
+🚚 Pilih Kurir
+</h3>
+
+
+
+<select id="kurir">
+
+
+<option>
+-- Pilih Kurir --
+</option>
+
+
+<option>
+J&T Express
+</option>
+
+
+<option>
+J&T Cargo
+</option>
+
+
+<option>
+JNE REG
+</option>
+
+
+<option>
+JNE YES
+</option>
+
+
+<option>
+SiCepat REG
+</option>
+
+
+<option>
+SiCepat BEST
+</option>
+
+
+<option>
+AnterAja
+</option>
+
+
+<option>
+POS Indonesia
+</option>
+
+
+<option>
+Ninja Xpress
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<h3>
+💳 Metode Pembayaran
+</h3>
+
+
+
+<select id="bayar">
+
+
+<option>
+-- Pilih Pembayaran --
+</option>
+
+
+<option>
+Transfer Bank
+</option>
+
+
+<option>
+DANA
+</option>
+
+
+<option>
+OVO
+</option>
+
+
+<option>
+GoPay
+</option>
+
+
+<option>
+ShopeePay
+</option>
+
+
+<option>
+QRIS
+</option>
+
+
+<option>
+COD
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<button 
+class="checkout-btn"
+onclick="checkout()">
+
+✅ Pesan Sekarang via WhatsApp
+
+</button>
+
+
+
+</div>
+
+
+</section>
+<!-- =========================
+     CARA BELANJA
+========================= -->
+
+
+<section id="cara">
+
+
+<h2 class="title">
+🛒 Cara Berbelanja
+</h2>
+
+
+
+<div class="cara-container">
+
+
+
+<div class="cara-card">
+
+<h2>
+1️⃣ Cari Produk
+</h2>
+
+<p>
+Gunakan kolom pencarian untuk menemukan produk yang diinginkan.
+</p>
+
+</div>
+
+
+
+
+
+<div class="cara-card">
+
+<h2>
+2️⃣ Pilih Produk
+</h2>
+
+<p>
+Klik tombol tambah keranjang pada produk pilihan.
+</p>
+
+</div>
+
+
+
+
+
+<div class="cara-card">
+
+<h2>
+3️⃣ Isi Data
+</h2>
+
+<p>
+Masukkan nama, nomor WhatsApp dan alamat pengiriman.
+</p>
+
+</div>
+
+
+
+
+
+<div class="cara-card">
+
+<h2>
+4️⃣ Pilih Kurir
+</h2>
+
+<p>
+Pilih kurir pengiriman sesuai kebutuhan.
+</p>
+
+</div>
+
+
+
+
+
+<div class="cara-card">
+
+<h2>
+5️⃣ Pembayaran
+</h2>
+
+<p>
+Pilih pembayaran dan konfirmasi melalui WhatsApp.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
 <!-- =========================
      TESTIMONI
 ========================= -->
@@ -1410,34 +1617,55 @@ grid-template-columns:1fr;
 </h2>
 
 
+
 <div class="testimoni">
 
 
+
 <div>
+
 ⭐⭐⭐⭐⭐
+
 <p>
 "Produk bagus dan pengiriman cepat."
 </p>
+
 <b>- Andi</b>
+
 </div>
 
 
+
+
+
 <div>
+
 ⭐⭐⭐⭐⭐
+
 <p>
-"Pelayanan ramah, barang sesuai."
+"Barang sesuai foto, pelayanan ramah."
 </p>
+
 <b>- Sinta</b>
+
 </div>
+
+
+
 
 
 <div>
+
 ⭐⭐⭐⭐
+
 <p>
-"Harga murah dan kualitas bagus."
+"Harga murah kualitas bagus."
 </p>
+
 <b>- Rian</b>
+
 </div>
+
 
 
 </div>
@@ -1450,7 +1678,10 @@ grid-template-columns:1fr;
 
 
 
-<!-- FAQ -->
+
+<!-- =========================
+     FAQ
+========================= -->
 
 
 <section>
@@ -1469,27 +1700,47 @@ grid-template-columns:1fr;
 Apakah barang asli?
 </h3>
 
+
 <p>
 Ya, semua produk ILUL STORE diperiksa sebelum dikirim.
 </p>
+
+
 
 
 <h3>
 Berapa lama pengiriman?
 </h3>
 
+
 <p>
-Pengiriman menggunakan kurir pilihan seperti J&T, JNE, dan lainnya.
+Pengiriman mengikuti estimasi dari kurir yang dipilih.
 </p>
+
+
+
+
+<h3>
+Apakah bisa COD?
+</h3>
+
+
+<p>
+Bisa memilih COD jika tersedia di area tujuan.
+</p>
+
+
 
 
 <h3>
 Bagaimana cara komplain?
 </h3>
 
+
 <p>
 Hubungi WhatsApp ILUL STORE untuk bantuan.
 </p>
+
 
 
 </div>
@@ -1504,10 +1755,12 @@ Hubungi WhatsApp ILUL STORE untuk bantuan.
 
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 
-<footer>
+<footer id="kontak">
 
 
 <h2>
@@ -1535,6 +1788,7 @@ Toko Online Premium & Terpercaya
 </p>
 
 
+
 </footer>
 
 
@@ -1542,10 +1796,10 @@ Toko Online Premium & Terpercaya
 
 
 
-
-
 <button id="atas" onclick="keAtas()">
+
 ↑
+
 </button>
 
 
@@ -1553,10 +1807,49 @@ Toko Online Premium & Terpercaya
 
 
 
-
-
-
 <style>
+
+
+.cara-container{
+
+
+display:grid;
+
+grid-template-columns:repeat(5,1fr);
+
+gap:20px;
+
+padding:20px 8%;
+
+
+}
+
+
+
+.cara-card{
+
+
+background:#151515;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+
+}
+
+
+
+.cara-card h2{
+
+color:#ffd700;
+
+font-size:20px;
+
+}
+
 
 
 .testimoni{
@@ -1592,19 +1885,9 @@ text-align:center;
 
 
 
-.testimoni div:first-letter{
-
-color:#ffd700;
-
-}
-
-
-
 .faq{
 
-
 margin:20px 8%;
-
 
 }
 
@@ -1616,12 +1899,12 @@ color:#ffd700;
 
 margin-top:20px;
 
-
 }
 
 
 
 footer{
+
 
 background:#111;
 
@@ -1637,7 +1920,6 @@ text-align:center;
 footer h2{
 
 color:#ffd700;
-
 
 }
 
@@ -1671,8 +1953,15 @@ cursor:pointer;
 
 
 
+@media(max-width:900px){
 
-@media(max-width:700px){
+
+.cara-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
 
 
 .testimoni{
@@ -1686,20 +1975,26 @@ grid-template-columns:1fr;
 
 
 
+@media(max-width:600px){
+
+
+.cara-container{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+
 </style>
-
-
-
-
-
-
-
-
 <script>
 
 
 // =====================
-// KERANJANG
+// DATA KERANJANG
 // =====================
 
 
@@ -1709,6 +2004,11 @@ let keranjang=[];
 
 
 
+// =====================
+// TAMBAH KERANJANG
+// =====================
+
+
 function tambahKeranjang(nama,harga){
 
 
@@ -1716,7 +2016,9 @@ keranjang.push({
 
 nama:nama,
 
-harga:harga
+harga:harga,
+
+jumlah:1
 
 });
 
@@ -1724,9 +2026,7 @@ harga:harga
 tampilKeranjang();
 
 
-alert(
-nama+" masuk keranjang"
-);
+alert(nama+" masuk keranjang");
 
 
 }
@@ -1737,50 +2037,73 @@ nama+" masuk keranjang"
 
 
 
+// =====================
+// TAMPILKAN KERANJANG
+// =====================
+
+
 function tampilKeranjang(){
 
 
-let list=document
-.getElementById(
-"isiKeranjang"
-);
-
+let list=document.getElementById("isiKeranjang");
 
 
 list.innerHTML="";
-
 
 
 let total=0;
 
 
 
-keranjang.forEach(
-function(item,index){
+keranjang.forEach(function(item,index){
 
 
 
-total += item.harga;
+total += item.harga * item.jumlah;
 
 
 
-list.innerHTML +=
-
-
-`
+list.innerHTML += `
 
 <li>
 
-${item.nama}
+<div>
+
+<b>${item.nama}</b>
+
+<br>
 
 Rp${item.harga.toLocaleString("id-ID")}
+
+<br>
+
+Jumlah : ${item.jumlah}
+
+</div>
+
+
+<div>
+
+
+<button onclick="kurang(${index})">
+➖
+</button>
+
+
+<button onclick="tambahJumlah(${index})">
+➕
+</button>
+
 
 <button onclick="hapus(${index})">
 ❌
 </button>
 
-</li>
 
+</div>
+
+
+</li>
 
 `;
 
@@ -1790,14 +2113,8 @@ Rp${item.harga.toLocaleString("id-ID")}
 
 
 
-
-
-document.getElementById(
-"total"
-).innerHTML=
-
+document.getElementById("total").innerHTML =
 total.toLocaleString("id-ID");
-
 
 
 }
@@ -1806,6 +2123,61 @@ total.toLocaleString("id-ID");
 
 
 
+
+
+// =====================
+// TAMBAH JUMLAH
+// =====================
+
+
+function tambahJumlah(index){
+
+
+keranjang[index].jumlah++;
+
+
+tampilKeranjang();
+
+
+}
+
+
+
+
+
+
+// =====================
+// KURANG JUMLAH
+// =====================
+
+
+function kurang(index){
+
+
+if(keranjang[index].jumlah>1){
+
+keranjang[index].jumlah--;
+
+}else{
+
+keranjang.splice(index,1);
+
+}
+
+
+tampilKeranjang();
+
+
+}
+
+
+
+
+
+
+// =====================
+// HAPUS PRODUK
+// =====================
 
 
 function hapus(index){
@@ -1825,46 +2197,33 @@ tampilKeranjang();
 
 
 
-
-
 // =====================
 // PENCARIAN PRODUK
 // =====================
 
 
-
 function cariProduk(){
 
 
-
 let cari=document
-.getElementById(
-"cariProduk"
-)
+.getElementById("cariProduk")
 .value
 .toLowerCase();
 
 
 
-let produk=document
-.querySelectorAll(
-".produk"
-);
+let produk=document.querySelectorAll(".produk");
 
 
 
-produk.forEach(
-function(item){
+produk.forEach(function(item){
 
 
-let nama=item.innerText
-.toLowerCase();
+let nama=item.innerText.toLowerCase();
 
 
 
-if(
-nama.includes(cari)
-){
+if(nama.includes(cari)){
 
 
 item.style.display="block";
@@ -1879,12 +2238,64 @@ item.style.display="none";
 }
 
 
-
 });
 
 
 }
 
+
+
+
+
+
+
+// =====================
+// FILTER KATEGORI
+// =====================
+
+
+function filterKategori(kategori){
+
+
+
+let produk=document.querySelectorAll(".produk");
+
+
+
+produk.forEach(function(item){
+
+
+
+if(kategori=="all"){
+
+
+item.style.display="block";
+
+
+}
+
+else if(item.dataset.kategori==kategori){
+
+
+item.style.display="block";
+
+
+}
+
+else{
+
+
+item.style.display="none";
+
+
+}
+
+
+});
+
+
+
+}
 
 
 
@@ -1898,44 +2309,32 @@ item.style.display="none";
 // =====================
 
 
-
 function checkout(){
 
 
 
 let nama=
-document.getElementById(
-"nama"
-).value;
+document.getElementById("nama").value;
 
 
 
 let nomor=
-document.getElementById(
-"nomor"
-).value;
+document.getElementById("nomor").value;
 
 
 
 let alamat=
-document.getElementById(
-"alamat"
-).value;
+document.getElementById("alamat").value;
 
 
 
 let kurir=
-document.getElementById(
-"kurir"
-).value;
+document.getElementById("kurir").value;
 
 
 
 let bayar=
-document.getElementById(
-"bayar"
-).value;
-
+document.getElementById("bayar").value;
 
 
 
@@ -1944,15 +2343,29 @@ document.getElementById(
 if(nama=="" || alamat==""){
 
 
-alert(
-"Lengkapi data pembeli"
-);
+alert("Lengkapi data pembeli");
 
 
 return;
 
 
 }
+
+
+
+
+
+if(keranjang.length==0){
+
+
+alert("Keranjang masih kosong");
+
+
+return;
+
+
+}
+
 
 
 
@@ -1972,8 +2385,19 @@ pesan +=
 
 
 
-keranjang.forEach(
-function(item){
+let total=0;
+
+
+
+keranjang.forEach(function(item){
+
+
+
+let subtotal=item.harga*item.jumlah;
+
+
+
+total += subtotal;
 
 
 
@@ -1981,9 +2405,11 @@ pesan +=
 
 "- "+item.nama+
 
+" x"+item.jumlah+
+
 " Rp"+
 
-item.harga.toLocaleString("id-ID")
+subtotal.toLocaleString("id-ID")
 
 +
 
@@ -1995,24 +2421,24 @@ item.harga.toLocaleString("id-ID")
 
 
 
+
 pesan +=
 
+"%0ANama : "+nama+
 
-"%0ANama: "+nama+
+"%0ANomor : "+nomor+
 
-"%0ANomor: "+nomor+
+"%0AAlamat : "+alamat+
 
-"%0AAlamat: "+alamat+
+"%0AKurir : "+kurir+
 
-"%0AKurir: "+kurir+
+"%0APembayaran : "+bayar+
 
-"%0APembayaran: "+bayar+
+"%0ATotal : Rp"+
 
-"%0ATotal: Rp"+
+total.toLocaleString("id-ID");
 
-document.getElementById(
-"total"
-).innerHTML;
+
 
 
 
@@ -2036,9 +2462,8 @@ window.open(
 
 
 // =====================
-// TOMBOL ATAS
+// TOMBOL KE ATAS
 // =====================
-
 
 
 function keAtas(){
@@ -2058,3 +2483,8 @@ behavior:"smooth"
 
 
 </script>
+
+
+</body>
+
+</html>
