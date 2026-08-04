@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toko Online Saya</title>
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f2f2f2;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .produk-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+
+        .produk {
+            background: white;
+            width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .produk img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .harga {
+            color: green;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+
+        #keranjang {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Toko Online Saya</h1>
+    <p>Belanja Mudah dan Cepat</p>
+</header>
+
+
+<div class="produk-container">
+
+    <div class="produk">
+        <img src="https://via.placeholder.com/200">
+        <h2>Produk 1</h2>
+        <p class="harga">Rp100.000</p>
+        <button onclick="beli('Produk 1')">
+            Beli
+        </button>
+    </div>
+
+
+    <div class="produk">
+        <img src="https://via.placeholder.com/200">
+        <h2>Produk 2</h2>
+        <p class="harga">Rp150.000</p>
+        <button onclick="beli('Produk 2')">
+            Beli
+        </button>
+    </div>
+
+
+    <div class="produk">
+        <img src="https://via.placeholder.com/200">
+        <h2>Produk 3</h2>
+        <p class="harga">Rp200.000</p>
+        <button onclick="beli('Produk 3')">
+            Beli
+        </button>
+    </div>
+
+</div>
+
+
+<div id="keranjang">
+    <h2>Keranjang</h2>
+    <ul id="list-belanja"></ul>
+</div>
+
+
+<script>
+
+let belanja = [];
+
+function beli(nama) {
+
+    belanja.push(nama);
+
+    tampilkan();
+
+}
+
+
+function tampilkan() {
+
+    let list = document.getElementById("list-belanja");
+
+    list.innerHTML = "";
+
+    belanja.forEach(function(item){
+
+        let data = document.createElement("li");
+
+        data.innerHTML = item;
+
+        list.appendChild(data);
+
+    });
+
+}
+
+</script>
+
+
+</body>
+</html>
