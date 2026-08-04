@@ -1,187 +1,503 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Toko Online Saya</title>
+
+<title>ILUL STORE</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin:0;
-    background:#f5f5f5;
+
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f5f5f5;
 }
 
-header {
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:25px;
+
+/* HEADER */
+header{
+
+background:#111;
+color:white;
+text-align:center;
+padding:25px;
+
 }
 
-.produk-container {
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    padding:30px;
-    flex-wrap:wrap;
+
+.logo{
+
+font-size:35px;
+font-weight:bold;
+color:#ffd700;
+
 }
 
-.produk {
-    background:white;
-    width:250px;
-    padding:20px;
-    border-radius:10px;
-    text-align:center;
-    box-shadow:0 2px 8px #ccc;
+
+
+/* WALLPAPER / BANNER ILUL STORE */
+
+.banner{
+
+background:
+linear-gradient(135deg,#000,#111827,#0066ff);
+
+color:white;
+
+padding:60px 20px;
+
+text-align:center;
+
+border-bottom:5px solid #ffd700;
+
+box-shadow:0 0 30px #0066ff;
+
 }
 
-.produk img {
-    width:200px;
-    height:200px;
-    object-fit:cover;
-    border-radius:10px;
+
+
+.brand{
+
+font-size:55px;
+
+font-weight:bold;
+
+letter-spacing:3px;
+
+color:#ffd700;
+
+text-shadow:
+0 0 10px #ffd700,
+0 0 20px #ff9900;
+
 }
 
-.harga {
-    color:green;
-    font-size:20px;
-    font-weight:bold;
+
+
+.banner p{
+
+font-size:22px;
+
 }
 
-button {
-    background:#0066ff;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    cursor:pointer;
-    border-radius:5px;
+
+
+/* MENU */
+
+.menu{
+
+background:white;
+
+padding:15px;
+
+text-align:center;
+
 }
 
-button:hover {
-    background:#003f99;
+
+.menu a{
+
+margin:15px;
+
+text-decoration:none;
+
+color:#111;
+
+font-weight:bold;
+
 }
 
-#keranjang {
-    background:white;
-    width:80%;
-    margin:20px auto;
-    padding:20px;
-    border-radius:10px;
+
+
+/* PRODUK */
+
+.produk-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+padding:30px;
+
+flex-wrap:wrap;
+
 }
 
-input {
-    width:90%;
-    padding:10px;
-    margin:10px;
+
+
+.produk{
+
+background:white;
+
+width:250px;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 3px 10px #ccc;
+
 }
 
-.hapus {
-    background:red;
-    padding:5px 10px;
+
+
+.produk img{
+
+width:200px;
+
+height:200px;
+
+object-fit:cover;
+
+border-radius:10px;
+
 }
 
-.checkout {
-    background:green;
-    width:100%;
+
+
+.harga{
+
+color:green;
+
+font-size:22px;
+
+font-weight:bold;
+
 }
+
+
+
+button{
+
+background:#0066ff;
+
+color:white;
+
+border:none;
+
+padding:12px 20px;
+
+border-radius:5px;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#003f99;
+
+}
+
+
+
+/* KERANJANG */
+
+#keranjang{
+
+background:white;
+
+width:80%;
+
+margin:20px auto;
+
+padding:20px;
+
+border-radius:15px;
+
+}
+
+
+
+input{
+
+width:90%;
+
+padding:12px;
+
+margin:10px;
+
+}
+
+
+
+.hapus{
+
+background:red;
+
+padding:5px 10px;
+
+}
+
+
+
+.checkout{
+
+background:green;
+
+width:100%;
+
+}
+
+
+
+/* FOOTER */
+
+footer{
+
+background:#111;
+
+color:white;
+
+text-align:center;
+
+padding:20px;
+
+margin-top:30px;
+
+}
+
 
 </style>
 
 </head>
 
+
 <body>
 
 
 <header>
-<h1>Toko Online Saya</h1>
-<p>Belanja Online Mudah dan Cepat</p>
+
+<div class="logo">
+
+🛒 ILUL STORE
+
+</div>
+
+<p>Toko Online Modern & Terpercaya</p>
+
 </header>
 
 
 
-<div class="produk-container"> 
+
+<div class="banner">
+
+
+<div class="brand">
+
+🛒 ILUL STORE
+
+</div>
+
+
+<p>
+
+Belanja Mudah, Cepat, dan Aman
+
+</p>
+
+
+<button>
+
+MULAI BELANJA
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="menu">
+
+<a href="#">Home</a>
+
+<a href="#">Fashion</a>
+
+<a href="#">Sepatu</a>
+
+<a href="#">Tas</a>
+
+</div>
+
+
+
+
+
+
+<div class="produk-container">
+
 
 
 <div class="produk">
 
-<img src="kaos. jpg">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+
 
 <h2>Kaos Premium</h2>
 
+
 <p class="harga">
+
 Rp75.000
+
 </p>
 
+
 <button onclick="tambahKeranjang('Kaos Premium',75000)">
+
 Beli
+
 </button>
+
 
 </div>
 
 
 
+
+
+
 <div class="produk">
 
-<img src="gambar/sepatu.jpg">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+
 
 <h2>Sepatu Sport</h2>
 
+
 <p class="harga">
+
 Rp250.000
+
 </p>
 
+
 <button onclick="tambahKeranjang('Sepatu Sport',250000)">
+
 Beli
+
 </button>
 
+
 </div>
+
+
 
 
 
 
 <div class="produk">
 
-<img src="gambar/tas.jpg">
+<img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62">
+
 
 <h2>Tas Fashion</h2>
 
+
 <p class="harga">
+
 Rp150.000
+
 </p>
 
+
 <button onclick="tambahKeranjang('Tas Fashion',150000)">
+
 Beli
+
 </button>
 
+
 </div>
 
 
+
+
+
+
+<div class="produk">
+
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
+
+
+<h2>Jam Tangan</h2>
+
+
+<p class="harga">
+
+Rp300.000
+
+</p>
+
+
+<button onclick="tambahKeranjang('Jam Tangan',300000)">
+
+Beli
+
+</button>
+
+
 </div>
+
+
+
+</div>
+
+
+
 
 
 
 
 <div id="keranjang">
 
-<h2>🛒 Keranjang Belanja</h2>
+
+<h2>🛒 Keranjang ILUL STORE</h2>
 
 
 <input id="namaPembeli" placeholder="Nama Pembeli">
 
 
-<ul id="isiKeranjang">
-</ul>
+<ul id="isiKeranjang"></ul>
 
 
 <h3>
+
 Total : Rp<span id="total">0</span>
+
 </h3>
 
 
 <button class="checkout" onclick="checkout()">
+
 Checkout WhatsApp
+
 </button>
 
+
 </div>
+
+
+
+
+
+
+
+<footer>
+
+© 2026 ILUL STORE
+
+</footer>
+
 
 
 
@@ -196,18 +512,21 @@ let daftarBelanja=[];
 
 function tambahKeranjang(nama,harga){
 
-    daftarBelanja.push({
 
-        nama:nama,
+daftarBelanja.push({
 
-        harga:harga
+nama:nama,
 
-    });
+harga:harga
+
+});
 
 
-    tampilkanKeranjang();
+tampilkanKeranjang();
+
 
 }
+
 
 
 
@@ -215,46 +534,48 @@ function tambahKeranjang(nama,harga){
 function tampilkanKeranjang(){
 
 
-    let isi=document.getElementById("isiKeranjang");
-
-    isi.innerHTML="";
+let isi=document.getElementById("isiKeranjang");
 
 
-    let total=0;
+isi.innerHTML="";
 
 
-
-    daftarBelanja.forEach(function(item,index){
-
-
-        total += item.harga;
+let total=0;
 
 
 
-        let li=document.createElement("li");
+daftarBelanja.forEach(function(item,index){
 
 
-        li.innerHTML =
-        item.nama+
-        " - Rp"+
-        item.harga.toLocaleString("id-ID")+
-
-        ' <button class="hapus" onclick="hapusItem('+index+')">Hapus</button>';
+total += item.harga;
 
 
 
-        isi.appendChild(li);
+isi.innerHTML +=
+
+"<li>"+
+
+item.nama+
+
+" - Rp"+
+
+item.harga.toLocaleString("id-ID")+
+
+" <button class='hapus' onclick='hapusItem("+index+")'>Hapus</button></li>";
 
 
-    });
+});
 
 
 
-    document.getElementById("total").innerHTML =
-    total.toLocaleString("id-ID");
+document.getElementById("total").innerHTML=
+
+total.toLocaleString("id-ID");
 
 
 }
+
+
 
 
 
@@ -262,13 +583,15 @@ function tampilkanKeranjang(){
 function hapusItem(index){
 
 
-    daftarBelanja.splice(index,1);
+daftarBelanja.splice(index,1);
 
 
-    tampilkanKeranjang();
+tampilkanKeranjang();
 
 
 }
+
+
 
 
 
@@ -277,77 +600,79 @@ function hapusItem(index){
 function checkout(){
 
 
-    let nama =
-    document.getElementById("namaPembeli").value;
+
+let nama=document.getElementById("namaPembeli").value;
 
 
 
-    if(nama.trim()==""){
+if(nama==""){
 
-        alert("Masukkan nama pembeli");
+alert("Masukkan nama pembeli");
 
-        return;
+return;
 
-    }
-
-
-
-    if(daftarBelanja.length==0){
-
-        alert("Keranjang masih kosong");
-
-        return;
-
-    }
+}
 
 
 
 
-    let pesan =
-    "Halo, saya ingin membeli:%0A%0A";
+if(daftarBelanja.length==0){
+
+alert("Keranjang masih kosong");
+
+return;
+
+}
 
 
 
-    daftarBelanja.forEach(function(item){
 
-
-        pesan +=
-        "- "+
-        item.nama+
-        " Rp"+
-        item.harga.toLocaleString("id-ID")+
-        "%0A";
-
-
-    });
+let pesan="Halo ILUL STORE, saya ingin membeli:%0A%0A";
 
 
 
-    pesan +=
-    "%0ATotal: Rp"+
-    document.getElementById("total").innerHTML+
-
-    "%0ANama Pembeli: "+
-    nama;
+daftarBelanja.forEach(function(item){
 
 
+pesan +=
 
-    // GANTI NOMOR INI DENGAN NOMOR WHATSAPP TOKO
-    let nomorWhatsApp="6283835969176";
+"- "+item.nama+
+
+" Rp"+
+
+item.harga.toLocaleString("id-ID")+
+
+"%0A";
+
+
+});
 
 
 
-    window.open(
 
-        "https://wa.me/"+
-        nomorWhatsApp+
-        "?text="+
-        encodeURIComponent(pesan)
+pesan +=
 
-    );
+"%0ANama : "+nama+
+
+"%0ATotal : Rp"+
+
+document.getElementById("total").innerHTML;
+
+
+
+
+window.open(
+
+"https://wa.me/6283835969176?text="+
+
+encodeURIComponent(pesan)
+
+);
+
 
 
 }
+
 
 
 </script>
