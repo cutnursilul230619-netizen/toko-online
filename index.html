@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Toko Ilul_rs</title>
+<title>Toko Online Saya</title>
 
 <style>
 body {
@@ -181,7 +181,6 @@ Total : Rp<span id="total">0</span>
 Checkout WhatsApp
 </button>
 
-
 </div>
 
 
@@ -197,18 +196,16 @@ let daftarBelanja=[];
 
 function tambahKeranjang(nama,harga){
 
+    daftarBelanja.push({
 
-daftarBelanja.push({
+        nama:nama,
 
-nama:nama,
+        harga:harga
 
-harga:harga
-
-});
+    });
 
 
-tampilkanKeranjang();
-
+    tampilkanKeranjang();
 
 }
 
@@ -218,45 +215,43 @@ tampilkanKeranjang();
 function tampilkanKeranjang(){
 
 
-let isi=document.getElementById("isiKeranjang");
+    let isi=document.getElementById("isiKeranjang");
+
+    isi.innerHTML="";
 
 
-isi.innerHTML="";
-
-
-let total=0;
-
-
-
-daftarBelanja.forEach(function(item,index){
-
-
-total += item.harga;
+    let total=0;
 
 
 
-let li=document.createElement("li");
+    daftarBelanja.forEach(function(item,index){
 
 
-li.innerHTML =
-item.nama+
-" - Rp"+
-item.harga.toLocaleString()+
-
-' <button class="hapus" onclick="hapusItem('+index+')">Hapus</button>';
+        total += item.harga;
 
 
 
-isi.appendChild(li);
+        let li=document.createElement("li");
+
+
+        li.innerHTML =
+        item.nama+
+        " - Rp"+
+        item.harga.toLocaleString("id-ID")+
+
+        ' <button class="hapus" onclick="hapusItem('+index+')">Hapus</button>';
 
 
 
-});
+        isi.appendChild(li);
+
+
+    });
 
 
 
-document.getElementById("total").innerHTML =
-total.toLocaleString();
+    document.getElementById("total").innerHTML =
+    total.toLocaleString("id-ID");
 
 
 }
@@ -267,10 +262,10 @@ total.toLocaleString();
 function hapusItem(index){
 
 
-daftarBelanja.splice(index,1);
+    daftarBelanja.splice(index,1);
 
 
-tampilkanKeranjang();
+    tampilkanKeranjang();
 
 
 }
@@ -282,52 +277,74 @@ tampilkanKeranjang();
 function checkout(){
 
 
-let nama =
-document.getElementById("namaPembeli").value;
+    let nama =
+    document.getElementById("namaPembeli").value;
 
 
 
-if(nama==""){
+    if(nama.trim()==""){
 
-alert("Masukkan nama pembeli");
+        alert("Masukkan nama pembeli");
 
-return;
+        return;
 
-}
-
-
-
-let pesan =
-"Halo saya ingin membeli:%0A";
+    }
 
 
 
-daftarBelanja.forEach(function(item){
+    if(daftarBelanja.length==0){
 
+        alert("Keranjang masih kosong");
 
-pesan +=
-"- "+item.nama+
-" Rp"+
-item.harga.toLocaleString()+
-"%0A";
+        return;
 
-
-});
+    }
 
 
 
-pesan +=
-"Total: Rp"+
-document.getElementById("total").innerHTML+
-"%0A"+
-"Nama: "+nama;
+
+    let pesan =
+    "Halo, saya ingin membeli:%0A%0A";
 
 
 
-window.open(
-"https://wa.me/083835969176?text="+pesan
-);
+    daftarBelanja.forEach(function(item){
 
+
+        pesan +=
+        "- "+
+        item.nama+
+        " Rp"+
+        item.harga.toLocaleString("id-ID")+
+        "%0A";
+
+
+    });
+
+
+
+    pesan +=
+    "%0ATotal: Rp"+
+    document.getElementById("total").innerHTML+
+
+    "%0ANama Pembeli: "+
+    nama;
+
+
+
+    // GANTI NOMOR INI DENGAN NOMOR WHATSAPP TOKO
+    let nomorWhatsApp="6283835969176";
+
+
+
+    window.open(
+
+        "https://wa.me/"+
+        nomorWhatsApp+
+        "?text="+
+        encodeURIComponent(pesan)
+
+    );
 
 
 }
