@@ -1,158 +1,337 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Toko Online Saya</title>
+<title>Toko Online Saya</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f5f5f5;
+}
 
-        header {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+header {
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
 
-        .produk-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 30px;
-            flex-wrap: wrap;
-        }
+.produk-container {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:30px;
+    flex-wrap:wrap;
+}
 
-        .produk {
-            background: white;
-            width: 250px;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 8px #ccc;
-        }
+.produk {
+    background:white;
+    width:250px;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 2px 8px #ccc;
+}
 
-        .produk img {
-            width: 200px;
-            height: 200px;
-            border-radius: 10px;
-        }
+.produk img {
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
 
-        .harga {
-            color: green;
-            font-size: 20px;
-            font-weight: bold;
-        }
+.harga {
+    color:green;
+    font-size:20px;
+    font-weight:bold;
+}
 
-        button {
-            background: blue;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+button {
+    background:#0066ff;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    cursor:pointer;
+    border-radius:5px;
+}
 
-        button:hover {
-            background: darkblue;
-        }
+button:hover {
+    background:#003f99;
+}
 
-        #keranjang {
-            background: white;
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
+#keranjang {
+    background:white;
+    width:80%;
+    margin:20px auto;
+    padding:20px;
+    border-radius:10px;
+}
+
+input {
+    width:90%;
+    padding:10px;
+    margin:10px;
+}
+
+.hapus {
+    background:red;
+    padding:5px 10px;
+}
+
+.checkout {
+    background:green;
+    width:100%;
+}
+
+</style>
 
 </head>
 
 <body>
 
+
 <header>
-    <h1>Toko Online Saya</h1>
-    <p>Belanja Online Mudah</p>
+<h1>Toko Online Saya</h1>
+<p>Belanja Online Mudah dan Cepat</p>
 </header>
+
 
 
 <div class="produk-container">
 
-    <div class="produk">
-        <img src="https://via.placeholder.com/200">
-        <h2>Kaos Premium</h2>
-        <p class="harga">Rp75.000</p>
-        <button onclick="tambahKeranjang('Kaos Premium')">
-            Beli
-        </button>
-    </div>
 
+<div class="produk">
 
-    <div class="produk">
-        <img src="https://via.placeholder.com/200">
-        <h2>Sepatu Sport</h2>
-        <p class="harga">Rp250.000</p>
-        <button onclick="tambahKeranjang('Sepatu Sport')">
-            Beli
-        </button>
-    </div>
+<img src="gambar/kaos.jpg">
 
+<h2>Kaos Premium</h2>
 
-    <div class="produk">
-        <img src="https://via.placeholder.com/200">
-        <h2>Tas Fashion</h2>
-        <p class="harga">Rp150.000</p>
-        <button onclick="tambahKeranjang('Tas Fashion')">
-            Beli
-        </button>
-    </div>
+<p class="harga">
+Rp75.000
+</p>
+
+<button onclick="tambahKeranjang('Kaos Premium',75000)">
+Beli
+</button>
 
 </div>
+
+
+
+<div class="produk">
+
+<img src="gambar/sepatu.jpg">
+
+<h2>Sepatu Sport</h2>
+
+<p class="harga">
+Rp250.000
+</p>
+
+<button onclick="tambahKeranjang('Sepatu Sport',250000)">
+Beli
+</button>
+
+</div>
+
+
+
+
+<div class="produk">
+
+<img src="gambar/tas.jpg">
+
+<h2>Tas Fashion</h2>
+
+<p class="harga">
+Rp150.000
+</p>
+
+<button onclick="tambahKeranjang('Tas Fashion',150000)">
+Beli
+</button>
+
+</div>
+
+
+</div>
+
+
 
 
 <div id="keranjang">
 
-    <h2>Keranjang Belanja</h2>
+<h2>🛒 Keranjang Belanja</h2>
 
-    <ul id="isiKeranjang">
-    </ul>
+
+<input id="namaPembeli" placeholder="Nama Pembeli">
+
+
+<ul id="isiKeranjang">
+</ul>
+
+
+<h3>
+Total : Rp<span id="total">0</span>
+</h3>
+
+
+<button class="checkout" onclick="checkout()">
+Checkout WhatsApp
+</button>
+
 
 </div>
 
 
+
+
+
 <script>
 
-let daftarBelanja = [];
+
+let daftarBelanja=[];
 
 
-function tambahKeranjang(namaProduk) {
 
-    daftarBelanja.push(namaProduk);
+function tambahKeranjang(nama,harga){
 
-    tampilkanKeranjang();
+
+daftarBelanja.push({
+
+nama:nama,
+
+harga:harga
+
+});
+
+
+tampilkanKeranjang();
+
 
 }
 
 
-function tampilkanKeranjang() {
 
-    let isi = document.getElementById("isiKeranjang");
 
-    isi.innerHTML = "";
+function tampilkanKeranjang(){
 
-    daftarBelanja.forEach(function(produk){
 
-        let item = document.createElement("li");
+let isi=document.getElementById("isiKeranjang");
 
-        item.innerHTML = produk;
 
-        isi.appendChild(item);
+isi.innerHTML="";
 
-    });
+
+let total=0;
+
+
+
+daftarBelanja.forEach(function(item,index){
+
+
+total += item.harga;
+
+
+
+let li=document.createElement("li");
+
+
+li.innerHTML =
+item.nama+
+" - Rp"+
+item.harga.toLocaleString()+
+
+' <button class="hapus" onclick="hapusItem('+index+')">Hapus</button>';
+
+
+
+isi.appendChild(li);
+
+
+
+});
+
+
+
+document.getElementById("total").innerHTML =
+total.toLocaleString();
+
 
 }
+
+
+
+
+function hapusItem(index){
+
+
+daftarBelanja.splice(index,1);
+
+
+tampilkanKeranjang();
+
+
+}
+
+
+
+
+
+function checkout(){
+
+
+let nama =
+document.getElementById("namaPembeli").value;
+
+
+
+if(nama==""){
+
+alert("Masukkan nama pembeli");
+
+return;
+
+}
+
+
+
+let pesan =
+"Halo saya ingin membeli:%0A";
+
+
+
+daftarBelanja.forEach(function(item){
+
+
+pesan +=
+"- "+item.nama+
+" Rp"+
+item.harga.toLocaleString()+
+"%0A";
+
+
+});
+
+
+
+pesan +=
+"Total: Rp"+
+document.getElementById("total").innerHTML+
+"%0A"+
+"Nama: "+nama;
+
+
+
+window.open(
+"https://wa.me/6281234567890?text="+pesan
+);
+
+
+
+}
+
 
 </script>
 
