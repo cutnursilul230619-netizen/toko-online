@@ -7,14 +7,14 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background: #f2f2f2;
+            background: #f5f5f5;
         }
 
         header {
             background: #111;
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 25px;
         }
 
         .produk-container {
@@ -31,18 +31,19 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0 2px 8px #ccc;
         }
 
         .produk img {
             width: 200px;
             height: 200px;
-            object-fit: cover;
+            border-radius: 10px;
         }
 
         .harga {
             color: green;
-            font-weight: bold;
             font-size: 20px;
+            font-weight: bold;
         }
 
         button {
@@ -50,8 +51,8 @@
             color: white;
             border: none;
             padding: 12px 20px;
-            border-radius: 5px;
             cursor: pointer;
+            border-radius: 5px;
         }
 
         button:hover {
@@ -60,19 +61,20 @@
 
         #keranjang {
             background: white;
+            width: 80%;
             margin: 20px auto;
             padding: 20px;
-            width: 80%;
             border-radius: 10px;
         }
     </style>
+
 </head>
 
 <body>
 
 <header>
     <h1>Toko Online Saya</h1>
-    <p>Belanja Mudah dan Cepat</p>
+    <p>Belanja Online Mudah</p>
 </header>
 
 
@@ -80,9 +82,9 @@
 
     <div class="produk">
         <img src="https://via.placeholder.com/200">
-        <h2>Produk 1</h2>
-        <p class="harga">Rp100.000</p>
-        <button onclick="beli('Produk 1')">
+        <h2>Kaos Premium</h2>
+        <p class="harga">Rp75.000</p>
+        <button onclick="tambahKeranjang('Kaos Premium')">
             Beli
         </button>
     </div>
@@ -90,19 +92,19 @@
 
     <div class="produk">
         <img src="https://via.placeholder.com/200">
-        <h2>Produk 2</h2>
+        <h2>Sepatu Sport</h2>
+        <p class="harga">Rp250.000</p>
+        <button onclick="tambahKeranjang('Sepatu Sport')">
+            Beli
+        </button>
+    </div>
+
+
+    <div class="produk">
+        <img src="https://via.placeholder.com/200">
+        <h2>Tas Fashion</h2>
         <p class="harga">Rp150.000</p>
-        <button onclick="beli('Produk 2')">
-            Beli
-        </button>
-    </div>
-
-
-    <div class="produk">
-        <img src="https://via.placeholder.com/200">
-        <h2>Produk 3</h2>
-        <p class="harga">Rp200.000</p>
-        <button onclick="beli('Produk 3')">
+        <button onclick="tambahKeranjang('Tas Fashion')">
             Beli
         </button>
     </div>
@@ -111,37 +113,42 @@
 
 
 <div id="keranjang">
-    <h2>Keranjang</h2>
-    <ul id="list-belanja"></ul>
+
+    <h2>Keranjang Belanja</h2>
+
+    <ul id="isiKeranjang">
+    </ul>
+
 </div>
 
 
 <script>
 
-let belanja = [];
+let daftarBelanja = [];
 
-function beli(nama) {
 
-    belanja.push(nama);
+function tambahKeranjang(namaProduk) {
 
-    tampilkan();
+    daftarBelanja.push(namaProduk);
+
+    tampilkanKeranjang();
 
 }
 
 
-function tampilkan() {
+function tampilkanKeranjang() {
 
-    let list = document.getElementById("list-belanja");
+    let isi = document.getElementById("isiKeranjang");
 
-    list.innerHTML = "";
+    isi.innerHTML = "";
 
-    belanja.forEach(function(item){
+    daftarBelanja.forEach(function(produk){
 
-        let data = document.createElement("li");
+        let item = document.createElement("li");
 
-        data.innerHTML = item;
+        item.innerHTML = produk;
 
-        list.appendChild(data);
+        isi.appendChild(item);
 
     });
 
