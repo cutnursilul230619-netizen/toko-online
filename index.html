@@ -1,755 +1,1101 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ILUL STORE</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top left, #dbeafe 0, transparent 35%),
-        radial-gradient(circle at bottom right, #dcfce7 0, transparent 35%),
-        #f8fafc;
-      color: #0f172a;
-      min-height: 100vh;
-    }
-
-    /* HEADER */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(15px);
-      background: rgba(255,255,255,.85);
-      border-bottom: 1px solid rgba(15,23,42,.08);
-    }
-
-    .nav {
-      max-width: 1100px;
-      margin: auto;
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      background: linear-gradient(135deg,#2563eb,#7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #16a34a;
-      background: #f0fdf4;
-      padding: 8px 12px;
-      border-radius: 50px;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 0 4px #dcfce7;
-    }
-
-    /* HERO */
-    .hero {
-      max-width: 1100px;
-      margin: auto;
-      padding: 55px 20px 30px;
-    }
-
-    .hero-box {
-      position: relative;
-      overflow: hidden;
-      border-radius: 28px;
-      padding: 45px 35px;
-      color: white;
-      background:
-        linear-gradient(135deg,
-          rgba(37,99,235,.98),
-          rgba(124,58,237,.95));
-      box-shadow: 0 25px 60px rgba(37,99,235,.22);
-    }
-
-    .hero-box::before {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.10);
-      right: -80px;
-      top: -100px;
-    }
-
-    .hero-box::after {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.08);
-      right: 100px;
-      bottom: -120px;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.2);
-      padding: 7px 13px;
-      border-radius: 50px;
-      font-size: 12px;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 {
-      font-size: clamp(32px, 6vw, 55px);
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 14px;
-    }
-
-    .hero p {
-      max-width: 550px;
-      color: rgba(255,255,255,.82);
-      line-height: 1.7;
-      font-size: 15px;
-    }
-
-    /* SEARCH */
-    .search-wrapper {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .search-box {
-      position: relative;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 18px 20px 18px 52px;
-      border: 1px solid #e2e8f0;
-      background: rgba(255,255,255,.9);
-      border-radius: 17px;
-      outline: none;
-      font-size: 14px;
-      box-shadow: 0 10px 30px rgba(15,23,42,.06);
-      transition: .25s;
-    }
-
-    .search-box input:focus {
-      border-color: #6366f1;
-      box-shadow: 0 10px 35px rgba(99,102,241,.15);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 19px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 20px;
-    }
-
-    /* CONTENT */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 0 20px 50px;
-    }
-
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 25px 0 18px;
-    }
-
-    .section-title h2 {
-      font-size: 21px;
-      letter-spacing: -.5px;
-    }
-
-    .section-title span {
-      font-size: 12px;
-      color: #64748b;
-    }
-
-    /* PRODUCT */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-    }
-
-    .product {
-      background: rgba(255,255,255,.9);
-      border: 1px solid #e2e8f0;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: .3s ease;
-      box-shadow: 0 8px 25px rgba(15,23,42,.05);
-    }
-
-    .product:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(15,23,42,.11);
-    }
-
-    .product-img {
-      height: 170px;
-      background: linear-gradient(135deg,#eff6ff,#eef2ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 65px;
-    }
-
-    .product-info {
-      padding: 17px;
-    }
-
-    .product-info h3 {
-      font-size: 15px;
-      margin-bottom: 7px;
-    }
-
-    .product-info p {
-      color: #64748b;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-
-    .price {
-      font-size: 17px;
-      font-weight: 800;
-      color: #2563eb;
-    }
-
-    /* CHECKOUT */
-    .checkout {
-      margin-top: 35px;
-      background: white;
-      border-radius: 25px;
-      padding: 25px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 15px 45px rgba(15,23,42,.07);
-    }
-
-    .checkout-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .checkout-title .icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 13px;
-      background: #eff6ff;
-      display: grid;
-      place-items: center;
-      font-size: 20px;
-    }
-
-    .checkout-title h2 {
-      font-size: 18px;
-    }
-
-    .checkout-title p {
-      font-size: 11px;
-      color: #64748b;
-      margin-top: 3px;
-    }
-
-    .total {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 17px;
-      margin-bottom: 15px;
-      background: linear-gradient(135deg,#eff6ff,#f5f3ff);
-      border-radius: 15px;
-    }
-
-    .total span:first-child {
-      color: #64748b;
-      font-size: 13px;
-    }
-
-    #totalHarga {
-      color: #2563eb;
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .form-group {
-      margin-bottom: 12px;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 15px 16px;
-      border: 1px solid #e2e8f0;
-      border-radius: 13px;
-      outline: none;
-      font-size: 14px;
-      transition: .2s;
-    }
-
-    .form-group input:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 4px rgba(37,99,235,.08);
-    }
-
-    .wa-button {
-      width: 100%;
-      border: none;
-      cursor: pointer;
-      padding: 16px;
-      margin-top: 5px;
-      border-radius: 14px;
-      color: white;
-      font-size: 14px;
-      font-weight: 700;
-      background: linear-gradient(135deg,#16a34a,#22c55e);
-      box-shadow: 0 10px 25px rgba(34,197,94,.22);
-      transition: .25s;
-    }
-
-    .wa-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(34,197,94,.3);
-    }
-
-    /* TESTIMONIAL */
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 15px;
-      margin-top: 35px;
-    }
-
-    .review {
-      background: white;
-      padding: 20px;
-      border-radius: 18px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .stars {
-      color: #f59e0b;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-    }
-
-    .review p {
-      color: #475569;
-      font-size: 13px;
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .review strong {
-      font-size: 12px;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 25px 20px;
-      color: #94a3b8;
-      font-size: 11px;
-    }
-
-    /* FLOATING WA */
-    .floating-wa {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #22c55e;
-      color: white;
-      font-size: 25px;
-      text-decoration: none;
-      box-shadow: 0 10px 30px rgba(34,197,94,.35);
-      z-index: 99;
-      transition: .25s;
-    }
-
-    .floating-wa:hover {
-      transform: scale(1.08);
-    }
-
-    /* MOBILE */
-    @media (max-width: 700px) {
-
-      .nav {
-        padding: 15px;
-      }
-
-      .hero {
-        padding: 25px 15px 15px;
-      }
-
-      .hero-box {
-        padding: 35px 25px;
-        border-radius: 23px;
-      }
-
-      .search-wrapper,
-      .container {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-
-      .products {
-        grid-template-columns: repeat(2,1fr);
-        gap: 12px;
-      }
-
-      .product-img {
-        height: 130px;
-        font-size: 48px;
-      }
-
-      .product-info {
-        padding: 13px;
-      }
-
-      .testimonials {
-        grid-template-columns: 1fr;
-      }
-
-      .status {
-        display: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🕷️ ILUL STORE</title>
+
+<style>
+
+/* =================================================
+   🕷️ ILUL STORE — SPIDER DARK PREMIUM
+================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(220,38,38,.25), transparent 35%),
+    radial-gradient(circle at 0% 50%, rgba(127,29,29,.18), transparent 30%),
+    linear-gradient(135deg,#030303,#0b0b0b,#170505);
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   🕷️ BACKGROUND LABA-LABA
+========================================= */
+
+.spider {
+  position: fixed;
+  right: -20px;
+  top: 100px;
+
+  font-size: 150px;
+  opacity: .055;
+
+  pointer-events: none;
+  z-index: 0;
+
+  animation: spiderMove 5s ease-in-out infinite;
+}
+
+@keyframes spiderMove {
+  0%,100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(20px) rotate(5deg);
+  }
+}
+
+
+/* =========================================
+   🛒 HEADER
+========================================= */
+
+header {
+  position: relative;
+  z-index: 2;
+
+  padding: 28px 20px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(135deg,#050505,#260707,#090909);
+
+  border-bottom: 1px solid rgba(239,68,68,.35);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.5);
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 0 15px rgba(239,68,68,.5);
+}
+
+.logo span {
+  color: #ef4444;
+}
+
+.tagline {
+  margin-top: 7px;
+  color: #888;
+  font-size: 12px;
+}
+
+
+/* =========================================
+   🔥 HERO
+========================================= */
+
+.hero {
+  position: relative;
+  z-index: 1;
+
+  width: min(92%,900px);
+  margin: 30px auto;
+
+  padding: 38px 25px;
+
+  text-align: center;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(40,10,10,.95),
+      rgba(12,12,12,.95)
+    );
+
+  border:
+    1px solid rgba(239,68,68,.25);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.45);
+}
+
+.hero .badge {
+  display: inline-block;
+
+  padding: 7px 13px;
+
+  border-radius: 50px;
+
+  color: #fca5a5;
+
+  background: rgba(239,68,68,.1);
+
+  border: 1px solid rgba(239,68,68,.2);
+
+  font-size: 11px;
+
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: clamp(30px,7vw,55px);
+
+  line-height: 1.05;
+
+  margin-bottom: 14px;
+}
+
+.hero h1 span {
+  color: #ef4444;
+
+  text-shadow:
+    0 0 20px rgba(239,68,68,.35);
+}
+
+.hero p {
+  color: #999;
+
+  max-width: 550px;
+
+  margin: auto;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   🔍 SEARCH
+========================================= */
+
+.search-area {
+  position: relative;
+  z-index: 2;
+
+  width: min(92%,680px);
+
+  margin: 20px auto;
+}
+
+#cariProduk {
+  width: 100%;
+
+  padding: 17px 22px;
+
+  border-radius: 50px;
+
+  border: 1px solid #292929;
+
+  outline: none;
+
+  color: #fff;
+
+  background: #111;
+
+  font-size: 14px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35);
+
+  transition: .3s;
+}
+
+#cariProduk::placeholder {
+  color: #666;
+}
+
+#cariProduk:focus {
+  border-color: #ef4444;
+
+  box-shadow:
+    0 0 0 4px rgba(239,68,68,.08),
+    0 0 30px rgba(239,68,68,.15);
+}
+
+
+/* =========================================
+   📦 PRODUK
+========================================= */
+
+.container {
+  position: relative;
+  z-index: 2;
+
+  width: min(92%,1000px);
+
+  margin: auto;
+}
+
+.section-title {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 30px 0 16px;
+}
+
+.section-title h2 {
+  font-size: 19px;
+}
+
+.section-title span {
+  color: #666;
+  font-size: 11px;
+}
+
+.products {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(190px,1fr));
+
+  gap: 16px;
+}
+
+.product {
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(145deg,#171717,#0d0d0d);
+
+  border: 1px solid #242424;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35);
+
+  transition: .3s;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(239,68,68,.45);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.55),
+    0 0 25px rgba(239,68,68,.08);
+}
+
+.product-image {
+  height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(239,68,68,.18),
+      transparent 65%
+    );
+
+  font-size: 70px;
+}
+
+.product-info {
+  padding: 17px;
+}
+
+.product-info h3 {
+  font-size: 15px;
+
+  margin-bottom: 7px;
+}
+
+.product-info p {
+  color: #777;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  margin-bottom: 13px;
+}
+
+.price {
+  color: #ef4444;
+
+  font-size: 18px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================
+   💰 CHECKOUT
+========================================= */
+
+.checkout {
+  margin-top: 30px;
+
+  padding: 23px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(145deg,#171717,#0d0d0d);
+
+  border:
+    1px solid #282828;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.4);
+}
+
+.checkout h2 {
+  font-size: 19px;
+
+  margin-bottom: 5px;
+}
+
+.checkout-sub {
+  color: #666;
+
+  font-size: 11px;
+
+  margin-bottom: 18px;
+}
+
+
+/* TOTAL */
+
+.total {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 17px;
+
+  margin-bottom: 15px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(127,29,29,.2),
+      rgba(20,20,20,.8)
+    );
+
+  border: 1px solid rgba(239,68,68,.12);
+}
+
+.total-label {
+  color: #888;
+
+  font-size: 12px;
+}
+
+#totalHarga {
+  color: #ef4444;
+
+  font-size: 23px;
+
+  font-weight: 900;
+
+  text-shadow:
+    0 0 15px rgba(239,68,68,.3);
+}
+
+
+/* INPUT */
+
+#nama,
+#nomor {
+  width: 100%;
+
+  padding: 16px;
+
+  margin-bottom: 11px;
+
+  border-radius: 13px;
+
+  border: 1px solid #292929;
+
+  outline: none;
+
+  color: #fff;
+
+  background: #0d0d0d;
+
+  font-size: 14px;
+
+  transition: .25s;
+}
+
+#nama::placeholder,
+#nomor::placeholder {
+  color: #666;
+}
+
+#nama:focus,
+#nomor:focus {
+  border-color: #dc2626;
+
+  box-shadow:
+    0 0 0 4px rgba(220,38,38,.07);
+}
+
+
+/* WHATSAPP */
+
+.wa-button {
+  width: 100%;
+
+  padding: 17px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  color: #fff;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      135deg,
+      #b91c1c,
+      #ef4444,
+      #991b1b
+    );
+
+  box-shadow:
+    0 10px 30px rgba(220,38,38,.25);
+
+  transition: .25s;
+}
+
+.wa-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 40px rgba(239,68,68,.35);
+}
+
+
+/* =========================================
+   ⭐ TESTIMONI
+========================================= */
+
+.testimonials {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: 15px;
+
+  margin-bottom: 35px;
+}
+
+.review {
+  padding: 19px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(145deg,#171717,#0c0c0c);
+
+  border: 1px solid #242424;
+
+  transition: .3s;
+}
+
+.review:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(239,68,68,.35);
+}
+
+.stars {
+  color: #ef4444;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+}
+
+.review p {
+  color: #999;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  margin-bottom: 12px;
+}
+
+.review strong {
+  font-size: 12px;
+}
+
+
+/* =========================================
+   🕷️ SPIDER WEB DECORATION
+========================================= */
+
+.web {
+  position: fixed;
+
+  left: -70px;
+  bottom: -70px;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(239,68,68,.07);
+
+  box-shadow:
+    0 0 0 25px rgba(239,68,68,.02),
+    0 0 0 50px rgba(239,68,68,.015);
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+
+  padding: 25px;
+
+  color: #555;
+
+  font-size: 11px;
+
+  border-top:
+    1px solid #181818;
+}
+
+
+/* =========================================
+   📱 MOBILE
+========================================= */
+
+@media(max-width:700px) {
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .hero {
+    padding: 32px 20px;
+  }
+
+  .products {
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap: 10px;
+  }
+
+  .product-image {
+    height: 130px;
+    font-size: 50px;
+  }
+
+  .product-info {
+    padding: 13px;
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .spider {
+    font-size: 100px;
+    right: -30px;
+  }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="nav">
-      <div class="logo">🛒 <span>ILUL STORE</span></div>
-
-      <div class="status">
-        <div class="status-dot"></div>
-        Toko Online
-      </div>
-    </div>
-  </header>
+<!-- 🕷️ BACKGROUND -->
+<div class="spider">🕷️</div>
+<div class="web"></div>
 
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-box">
-      <div class="hero-content">
+<!-- 🛒 HEADER -->
 
-        <div class="badge">✨ Belanja Mudah & Cepat</div>
+<header>
 
-        <h1>Temukan Produk<br>Favoritmu.</h1>
+  <div class="logo">
+    🛒 <span>ILUL</span> STORE
+  </div>
 
-        <p>
-          Belanja kebutuhanmu dengan mudah di ILUL STORE.
-          Pilih produk, isi data, dan langsung pesan melalui WhatsApp.
-        </p>
+  <div class="tagline">
+    ✨ Belanja mudah • Cepat • Terpercaya
+  </div>
 
-      </div>
-    </div>
-  </section>
+</header>
 
 
-  <!-- SEARCH -->
-  <div class="search-wrapper">
-    <div class="search-box">
-      <span class="search-icon">🔍</span>
+<!-- 🔥 HERO -->
 
-      <input
-        type="text"
-        id="cariProduk"
-        onkeyup="cariProduk()"
-        placeholder="Cari produk ILUL STORE..."
-      >
-    </div>
+<section class="hero">
+
+  <div class="badge">
+    🕷️ SPIDER COLLECTION
+  </div>
+
+  <h1>
+    Selamat Datang di
+    <span>ILUL STORE</span>
+  </h1>
+
+  <p>
+    Temukan produk favoritmu dengan mudah.
+    Pilih produk, isi data pesanan,
+    lalu langsung pesan melalui WhatsApp.
+  </p>
+
+</section>
+
+
+<!-- 🔍 SEARCH -->
+
+<div class="search-area">
+
+  <input
+    id="cariProduk"
+    onkeyup="cariProduk()"
+    placeholder="🔍 Cari produk ILUL STORE..."
+  >
+
+</div>
+
+
+<!-- 📦 PRODUK -->
+
+<main class="container">
+
+  <div class="section-title">
+
+    <h2>🔥 Produk Pilihan</h2>
+
+    <span>
+      ILUL STORE
+    </span>
+
   </div>
 
 
-  <!-- PRODUCTS -->
-  <main class="container">
+  <div class="products" id="produkList">
 
-    <div class="section-title">
-      <h2>🔥 Produk Pilihan</h2>
-      <span>Belanja sekarang</span>
-    </div>
 
-    <div class="products" id="produkList">
+    <div class="product"
+         data-nama="Produk Premium">
 
-      <div class="product" data-nama="Produk Premium">
-        <div class="product-img">📦</div>
-
-        <div class="product-info">
-          <h3>Produk Premium</h3>
-          <p>Kualitas terbaik untuk kamu.</p>
-          <div class="price">Rp50.000</div>
-        </div>
+      <div class="product-image">
+        🕷️
       </div>
 
+      <div class="product-info">
 
-      <div class="product" data-nama="Produk Spesial">
-        <div class="product-img">🎁</div>
+        <h3>
+          Produk Premium
+        </h3>
 
-        <div class="product-info">
-          <h3>Produk Spesial</h3>
-          <p>Pilihan favorit pelanggan.</p>
-          <div class="price">Rp75.000</div>
+        <p>
+          Produk pilihan dengan
+          kualitas terbaik.
+        </p>
+
+        <div class="price">
+          Rp50.000
         </div>
-      </div>
 
-
-      <div class="product" data-nama="Produk Terlaris">
-        <div class="product-img">⭐</div>
-
-        <div class="product-info">
-          <h3>Produk Terlaris</h3>
-          <p>Paling banyak diminati.</p>
-          <div class="price">Rp100.000</div>
-        </div>
-      </div>
-
-
-      <div class="product" data-nama="Produk Baru">
-        <div class="product-img">✨</div>
-
-        <div class="product-info">
-          <h3>Produk Baru</h3>
-          <p>Produk terbaru ILUL STORE.</p>
-          <div class="price">Rp125.000</div>
-        </div>
       </div>
 
     </div>
 
 
-    <!-- CHECKOUT -->
-    <section class="checkout">
+    <div class="product"
+         data-nama="Produk Spesial">
 
-      <div class="checkout-title">
+      <div class="product-image">
+        🎁
+      </div>
 
-        <div class="icon">🛍️</div>
+      <div class="product-info">
 
-        <div>
-          <h2>Checkout Pesanan</h2>
-          <p>Isi data untuk melanjutkan pesanan</p>
+        <h3>
+          Produk Spesial
+        </h3>
+
+        <p>
+          Pilihan spesial untuk
+          pelanggan ILUL STORE.
+        </p>
+
+        <div class="price">
+          Rp75.000
         </div>
 
       </div>
 
-
-      <div class="total">
-        <span>Total Belanja</span>
-        <span id="totalHarga">Rp0</span>
-      </div>
-
-
-      <div class="form-group">
-        <input
-          type="text"
-          id="nama"
-          placeholder="👤 Nama Lengkap"
-        >
-      </div>
-
-
-      <div class="form-group">
-        <input
-          type="tel"
-          id="nomor"
-          placeholder="📱 Nomor WhatsApp"
-        >
-      </div>
-
-
-      <button class="wa-button" onclick="pesanWhatsApp()">
-        💬 Pesan Sekarang via WhatsApp
-      </button>
-
-    </section>
-
-
-    <!-- REVIEWS -->
-    <div class="section-title">
-      <h2>💬 Kata Mereka</h2>
-      <span>Review pelanggan</span>
     </div>
 
-    <section class="testimonials">
 
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>
-          "Pelayanannya cepat dan produknya bagus banget!"
-        </p>
-        <strong>— Andi</strong>
+    <div class="product"
+         data-nama="Produk Terlaris">
+
+      <div class="product-image">
+        🔥
       </div>
 
-      <div class="review">
-        <div class="stars">★★★★★</div>
+      <div class="product-info">
+
+        <h3>
+          Produk Terlaris
+        </h3>
+
         <p>
-          "Pesan lewat WhatsApp sangat mudah. Recommended!"
+          Produk yang paling
+          banyak diminati.
         </p>
-        <strong>— Sinta</strong>
+
+        <div class="price">
+          Rp100.000
+        </div>
+
       </div>
 
-      <div class="review">
-        <div class="stars">★★★★</div>
-        <p>
-          "Produknya sesuai dengan yang ditampilkan."
-        </p>
-        <strong>— Rian</strong>
+    </div>
+
+
+    <div class="product"
+         data-nama="Produk Baru">
+
+      <div class="product-image">
+        ⭐
       </div>
 
-    </section>
+      <div class="product-info">
 
-  </main>
+        <h3>
+          Produk Baru
+        </h3>
+
+        <p>
+          Produk terbaru dari
+          ILUL STORE.
+        </p>
+
+        <div class="price">
+          Rp125.000
+        </div>
+
+      </div>
+
+    </div>
 
 
-  <footer>
-    © 2026 ILUL STORE · Belanja mudah, cepat & terpercaya ❤️
-  </footer>
+  </div>
 
 
-  <!-- FLOATING WHATSAPP -->
-  <a
-    class="floating-wa"
-    href="https://wa.me/628XXXXXXXXXX"
-    target="_blank"
-  >
-    💬
-  </a>
+  <!-- 💰 CHECKOUT -->
+
+  <section class="checkout">
+
+    <h2>
+      🛍️ Checkout Pesanan
+    </h2>
+
+    <div class="checkout-sub">
+      Isi data di bawah untuk melakukan pemesanan.
+    </div>
 
 
-  <script>
+    <div class="total">
 
-    /* =========================
-       PENCARIAN PRODUK
-    ========================= */
+      <span class="total-label">
+        Total Belanja
+      </span>
 
-    function cariProduk() {
+      <span id="totalHarga">
+        Rp0
+      </span>
 
-      const input =
-        document.getElementById("cariProduk")
-        .value
+    </div>
+
+
+    <input
+      id="nama"
+      placeholder="👤 Nama Lengkap"
+    >
+
+
+    <input
+      id="nomor"
+      placeholder="📱 Nomor WhatsApp"
+    >
+
+
+    <button
+      class="wa-button"
+      onclick="pesanWhatsApp()"
+    >
+      💬 Pesan Sekarang via WhatsApp
+    </button>
+
+  </section>
+
+
+  <!-- ⭐ TESTIMONI -->
+
+  <div class="section-title">
+
+    <h2>
+      ⭐ Kata Pelanggan
+    </h2>
+
+    <span>
+      Review
+    </span>
+
+  </div>
+
+
+  <section class="testimonials">
+
+
+    <div class="review">
+
+      <div class="stars">
+        ★★★★★
+      </div>
+
+      <p>
+        "Pelayanannya cepat dan
+        produknya bagus banget!"
+      </p>
+
+      <strong>
+        — Andi
+      </strong>
+
+    </div>
+
+
+    <div class="review">
+
+      <div class="stars">
+        ★★★★★
+      </div>
+
+      <p>
+        "Pesan lewat WhatsApp
+        sangat mudah. Recommended!"
+      </p>
+
+      <strong>
+        — Sinta
+      </strong>
+
+    </div>
+
+
+    <div class="review">
+
+      <div class="stars">
+        ★★★★
+      </div>
+
+      <p>
+        "Produknya sesuai dengan
+        yang ditampilkan."
+      </p>
+
+      <strong>
+        — Rian
+      </strong>
+
+    </div>
+
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  🕷️ © 2026 ILUL STORE
+  <br>
+  Belanja mudah • Cepat • Terpercaya ❤️
+
+</footer>
+
+
+
+<script>
+
+/* =========================================
+   🔍 PENCARIAN PRODUK
+========================================= */
+
+function cariProduk() {
+
+  const input =
+    document
+      .getElementById("cariProduk")
+      .value
+      .toLowerCase();
+
+  const produk =
+    document.querySelectorAll(".product");
+
+
+  produk.forEach(function(item) {
+
+    const nama =
+      item
+        .getAttribute("data-nama")
         .toLowerCase();
 
-      const produk =
-        document.querySelectorAll(".product");
+    if (nama.includes(input)) {
 
-      produk.forEach(item => {
+      item.style.display = "";
 
-        const nama =
-          item.dataset.nama.toLowerCase();
+    } else {
 
-        if (nama.includes(input)) {
-          item.style.display = "";
-        } else {
-          item.style.display = "none";
-        }
-
-      });
+      item.style.display = "none";
 
     }
 
+  });
 
-    /* =========================
-       PESAN WHATSAPP
-    ========================= */
-
-    function pesanWhatsApp() {
-
-      const nama =
-        document.getElementById("nama").value.trim();
-
-      const nomor =
-        document.getElementById("nomor").value.trim();
-
-      const total =
-        document.getElementById("totalHarga").innerText;
+}
 
 
-      if (!nama) {
-        alert("Silakan isi nama lengkap.");
-        return;
-      }
+/* =========================================
+   💬 PESAN WHATSAPP
+========================================= */
+
+function pesanWhatsApp() {
+
+  const nama =
+    document
+      .getElementById("nama")
+      .value
+      .trim();
+
+  const nomor =
+    document
+      .getElementById("nomor")
+      .value
+      .trim();
 
 
-      if (!nomor) {
-        alert("Silakan isi nomor WhatsApp.");
-        return;
-      }
+  const total =
+    document
+      .getElementById("totalHarga")
+      .innerText;
 
 
-      const pesan =
-        `Halo ILUL STORE 👋%0A%0A` +
-        `Saya ingin melakukan pemesanan.%0A%0A` +
-        `👤 Nama: ${nama}%0A` +
-        `📱 WhatsApp: ${nomor}%0A` +
-        `💰 Total: ${total}%0A%0A` +
-        `Mohon diproses ya. Terima kasih 🙏`;
+  if (!nama) {
+
+    alert(
+      "⚠️ Silakan isi Nama Lengkap."
+    );
+
+    return;
+  }
 
 
-      /* GANTI NOMOR INI */
-      const nomorToko = "628XXXXXXXXXX";
+  if (!nomor) {
 
-      window.open(
-        `https://wa.me/${nomorToko}?text=${pesan}`,
-        "_blank"
-      );
+    alert(
+      "⚠️ Silakan isi Nomor WhatsApp."
+    );
 
-    }
+    return;
+  }
 
-  </script>
+
+  const pesan =
+`Halo ILUL STORE 🕷️
+
+Saya ingin melakukan pemesanan.
+
+👤 Nama: ${nama}
+📱 WhatsApp: ${nomor}
+💰 Total: ${total}
+
+Mohon diproses ya.
+Terima kasih 🙏`;
+
+
+  /*
+    ⚠️ GANTI NOMOR INI
+    dengan nomor WhatsApp ILUL STORE
+  */
+
+  const nomorToko =
+    "083835969176";
+
+
+  window.open(
+    "https://wa.me/" +
+    nomorToko +
+    "?text=" +
+    encodeURIComponent(pesan),
+    "_blank"
+  );
+
+}
+
+</script>
 
 </body>
 </html>
+```
