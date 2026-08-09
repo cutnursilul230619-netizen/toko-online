@@ -1,2490 +1,755 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ILUL STORE | Toko Online</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
-
-
-body{
-background:#0a0a0a;
-color:white;
-}
-
-
-html{
-scroll-behavior:smooth;
-}
-
-
-/* HEADER */
-
-header{
-
-position:sticky;
-top:0;
-z-index:999;
-
-background:#111;
-
-padding:20px 8%;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-box-shadow:0 0 20px black;
-
-}
-
-
-.logo{
-
-font-size:35px;
-font-weight:700;
-color:#ffd700;
-
-}
-
-
-
-nav a{
-
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-weight:bold;
-
-}
-
-
-nav a:hover{
-
-color:#ffd700;
-
-}
-
-
-
-/* BANNER */
-
-
-.banner{
-
-height:450px;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-
-
-background:
-
-linear-gradient(
-rgba(0,0,0,.7),
-rgba(0,0,0,.7)
-),
-
-url("https://images.unsplash.com/photo-1441986300917-64674bd600d8");
-
-
-background-size:cover;
-
-background-position:center;
-
-border-bottom:5px solid gold;
-
-}
-
-
-
-.banner h1{
-
-font-size:70px;
-
-color:#ffd700;
-
-text-shadow:
-0 0 15px gold,
-0 0 30px orange;
-
-}
-
-
-
-.banner p{
-
-font-size:25px;
-
-margin:20px;
-
-}
-
-
-
-.btn{
-
-display:inline-block;
-
-background:#ffd700;
-
-color:black;
-
-padding:15px 40px;
-
-border-radius:30px;
-
-font-weight:bold;
-
-text-decoration:none;
-
-}
-
-
-.btn:hover{
-
-background:white;
-
-}
-
-
-
-
-/* SEARCH */
-
-
-.search{
-
-padding:40px 8%;
-
-text-align:center;
-
-}
-
-
-
-.search input{
-
-width:80%;
-
-padding:18px;
-
-border-radius:30px;
-
-border:none;
-
-font-size:18px;
-
-}
-
-
-
-
-
-/* KATEGORI */
-
-
-.kategori{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-padding:20px;
-
-}
-
-
-
-.kategori button{
-
-background:#ffd700;
-
-border:none;
-
-padding:15px 30px;
-
-border-radius:30px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-
-.kategori button:hover{
-
-background:white;
-
-}
-
-
-
-
-.title{
-
-text-align:center;
-
-font-size:40px;
-
-color:#ffd700;
-
-margin:50px 0 30px;
-
-}
-
-
-
-/* RESPONSIVE */
-
-
-@media(max-width:700px){
-
-
-header{
-
-flex-direction:column;
-
-}
-
-
-nav{
-
-margin-top:15px;
-
-}
-
-
-.banner h1{
-
-font-size:40px;
-
-}
-
-
-}
-
-
-</style>
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ILUL STORE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, #dbeafe 0, transparent 35%),
+        radial-gradient(circle at bottom right, #dcfce7 0, transparent 35%),
+        #f8fafc;
+      color: #0f172a;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(15px);
+      background: rgba(255,255,255,.85);
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg,#2563eb,#7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #16a34a;
+      background: #f0fdf4;
+      padding: 8px 12px;
+      border-radius: 50px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #dcfce7;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 20px 30px;
+    }
+
+    .hero-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 45px 35px;
+      color: white;
+      background:
+        linear-gradient(135deg,
+          rgba(37,99,235,.98),
+          rgba(124,58,237,.95));
+      box-shadow: 0 25px 60px rgba(37,99,235,.22);
+    }
+
+    .hero-box::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.10);
+      right: -80px;
+      top: -100px;
+    }
+
+    .hero-box::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      right: 100px;
+      bottom: -120px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 7px 13px;
+      border-radius: 50px;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 55px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 550px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* SEARCH */
+    .search-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 18px 20px 18px 52px;
+      border: 1px solid #e2e8f0;
+      background: rgba(255,255,255,.9);
+      border-radius: 17px;
+      outline: none;
+      font-size: 14px;
+      box-shadow: 0 10px 30px rgba(15,23,42,.06);
+      transition: .25s;
+    }
+
+    .search-box input:focus {
+      border-color: #6366f1;
+      box-shadow: 0 10px 35px rgba(99,102,241,.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 19px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+    }
+
+    /* CONTENT */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px 50px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 25px 0 18px;
+    }
+
+    .section-title h2 {
+      font-size: 21px;
+      letter-spacing: -.5px;
+    }
+
+    .section-title span {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    /* PRODUCT */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    .product {
+      background: rgba(255,255,255,.9);
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: .3s ease;
+      box-shadow: 0 8px 25px rgba(15,23,42,.05);
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(15,23,42,.11);
+    }
+
+    .product-img {
+      height: 170px;
+      background: linear-gradient(135deg,#eff6ff,#eef2ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 65px;
+    }
+
+    .product-info {
+      padding: 17px;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .product-info p {
+      color: #64748b;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 17px;
+      font-weight: 800;
+      color: #2563eb;
+    }
+
+    /* CHECKOUT */
+    .checkout {
+      margin-top: 35px;
+      background: white;
+      border-radius: 25px;
+      padding: 25px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 15px 45px rgba(15,23,42,.07);
+    }
+
+    .checkout-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .checkout-title .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: #eff6ff;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+    }
+
+    .checkout-title h2 {
+      font-size: 18px;
+    }
+
+    .checkout-title p {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 3px;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 17px;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg,#eff6ff,#f5f3ff);
+      border-radius: 15px;
+    }
+
+    .total span:first-child {
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    #totalHarga {
+      color: #2563eb;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 13px;
+      outline: none;
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    .form-group input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37,99,235,.08);
+    }
+
+    .wa-button {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      padding: 16px;
+      margin-top: 5px;
+      border-radius: 14px;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      background: linear-gradient(135deg,#16a34a,#22c55e);
+      box-shadow: 0 10px 25px rgba(34,197,94,.22);
+      transition: .25s;
+    }
+
+    .wa-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(34,197,94,.3);
+    }
+
+    /* TESTIMONIAL */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+      margin-top: 35px;
+    }
+
+    .review {
+      background: white;
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .stars {
+      color: #f59e0b;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .review p {
+      color: #475569;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .review strong {
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 25px 20px;
+      color: #94a3b8;
+      font-size: 11px;
+    }
+
+    /* FLOATING WA */
+    .floating-wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #22c55e;
+      color: white;
+      font-size: 25px;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(34,197,94,.35);
+      z-index: 99;
+      transition: .25s;
+    }
+
+    .floating-wa:hover {
+      transform: scale(1.08);
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+
+      .nav {
+        padding: 15px;
+      }
+
+      .hero {
+        padding: 25px 15px 15px;
+      }
+
+      .hero-box {
+        padding: 35px 25px;
+        border-radius: 23px;
+      }
+
+      .search-wrapper,
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2,1fr);
+        gap: 12px;
+      }
+
+      .product-img {
+        height: 130px;
+        font-size: 48px;
+      }
+
+      .product-info {
+        padding: 13px;
+      }
+
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .status {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- HEADER -->
+  <header class="header">
+    <div class="nav">
+      <div class="logo">🛒 <span>ILUL STORE</span></div>
 
-<header>
+      <div class="status">
+        <div class="status-dot"></div>
+        Toko Online
+      </div>
+    </div>
+  </header>
 
 
-<div class="logo">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-box">
+      <div class="hero-content">
 
-🛒 ILUL STORE
+        <div class="badge">✨ Belanja Mudah & Cepat</div>
 
-</div>
+        <h1>Temukan Produk<br>Favoritmu.</h1>
 
+        <p>
+          Belanja kebutuhanmu dengan mudah di ILUL STORE.
+          Pilih produk, isi data, dan langsung pesan melalui WhatsApp.
+        </p>
 
+      </div>
+    </div>
+  </section>
 
-<nav>
 
-<a href="#home">
-Home
-</a>
+  <!-- SEARCH -->
+  <div class="search-wrapper">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
 
+      <input
+        type="text"
+        id="cariProduk"
+        onkeyup="cariProduk()"
+        placeholder="Cari produk ILUL STORE..."
+      >
+    </div>
+  </div>
 
-<a href="#produk">
-Produk
-</a>
 
+  <!-- PRODUCTS -->
+  <main class="container">
 
-<a href="#keranjang">
-Keranjang
-</a>
+    <div class="section-title">
+      <h2>🔥 Produk Pilihan</h2>
+      <span>Belanja sekarang</span>
+    </div>
 
+    <div class="products" id="produkList">
 
-<a href="#checkout">
-Checkout
-</a>
+      <div class="product" data-nama="Produk Premium">
+        <div class="product-img">📦</div>
 
+        <div class="product-info">
+          <h3>Produk Premium</h3>
+          <p>Kualitas terbaik untuk kamu.</p>
+          <div class="price">Rp50.000</div>
+        </div>
+      </div>
 
-<a href="#cara">
-Cara Belanja
-</a>
 
+      <div class="product" data-nama="Produk Spesial">
+        <div class="product-img">🎁</div>
 
-<a href="#kontak">
-Kontak
-</a>
+        <div class="product-info">
+          <h3>Produk Spesial</h3>
+          <p>Pilihan favorit pelanggan.</p>
+          <div class="price">Rp75.000</div>
+        </div>
+      </div>
 
 
-</nav>
+      <div class="product" data-nama="Produk Terlaris">
+        <div class="product-img">⭐</div>
 
+        <div class="product-info">
+          <h3>Produk Terlaris</h3>
+          <p>Paling banyak diminati.</p>
+          <div class="price">Rp100.000</div>
+        </div>
+      </div>
 
-</header>
 
+      <div class="product" data-nama="Produk Baru">
+        <div class="product-img">✨</div>
 
+        <div class="product-info">
+          <h3>Produk Baru</h3>
+          <p>Produk terbaru ILUL STORE.</p>
+          <div class="price">Rp125.000</div>
+        </div>
+      </div>
 
+    </div>
 
 
-<section class="banner" id="home">
+    <!-- CHECKOUT -->
+    <section class="checkout">
 
+      <div class="checkout-title">
 
-<div>
+        <div class="icon">🛍️</div>
 
+        <div>
+          <h2>Checkout Pesanan</h2>
+          <p>Isi data untuk melanjutkan pesanan</p>
+        </div>
 
-<h1>
-ILUL STORE
-</h1>
+      </div>
 
 
-<p>
-Belanja Online Mudah, Cepat & Terpercaya
-</p>
+      <div class="total">
+        <span>Total Belanja</span>
+        <span id="totalHarga">Rp0</span>
+      </div>
 
 
-<a href="#produk" class="btn">
-Mulai Belanja
-</a>
+      <div class="form-group">
+        <input
+          type="text"
+          id="nama"
+          placeholder="👤 Nama Lengkap"
+        >
+      </div>
 
 
-</div>
+      <div class="form-group">
+        <input
+          type="tel"
+          id="nomor"
+          placeholder="📱 Nomor WhatsApp"
+        >
+      </div>
 
 
-</section>
+      <button class="wa-button" onclick="pesanWhatsApp()">
+        💬 Pesan Sekarang via WhatsApp
+      </button>
 
+    </section>
 
 
+    <!-- REVIEWS -->
+    <div class="section-title">
+      <h2>💬 Kata Mereka</h2>
+      <span>Review pelanggan</span>
+    </div>
 
+    <section class="testimonials">
 
-<div class="search">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>
+          "Pelayanannya cepat dan produknya bagus banget!"
+        </p>
+        <strong>— Andi</strong>
+      </div>
 
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>
+          "Pesan lewat WhatsApp sangat mudah. Recommended!"
+        </p>
+        <strong>— Sinta</strong>
+      </div>
 
-<input 
-id="cariProduk"
-onkeyup="cariProduk()"
-placeholder="🔍 Cari produk ILUL STORE..."
->
+      <div class="review">
+        <div class="stars">★★★★</div>
+        <p>
+          "Produknya sesuai dengan yang ditampilkan."
+        </p>
+        <strong>— Rian</strong>
+      </div>
 
+    </section>
 
-</div>
+  </main>
 
 
+  <footer>
+    © 2026 ILUL STORE · Belanja mudah, cepat & terpercaya ❤️
+  </footer>
 
 
+  <!-- FLOATING WHATSAPP -->
+  <a
+    class="floating-wa"
+    href="https://wa.me/628XXXXXXXXXX"
+    target="_blank"
+  >
+    💬
+  </a>
 
-<div class="kategori">
 
+  <script>
 
-<button onclick="filterKategori('all')">
-Semua
-</button>
+    /* =========================
+       PENCARIAN PRODUK
+    ========================= */
 
+    function cariProduk() {
 
-<button onclick="filterKategori('fashion')">
-Fashion
-</button>
+      const input =
+        document.getElementById("cariProduk")
+        .value
+        .toLowerCase();
 
+      const produk =
+        document.querySelectorAll(".product");
 
-<button onclick="filterKategori('sepatu')">
-Sepatu
-</button>
+      produk.forEach(item => {
 
+        const nama =
+          item.dataset.nama.toLowerCase();
 
-<button onclick="filterKategori('tas')">
-Tas
-</button>
+        if (nama.includes(input)) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
 
+      });
 
-<button onclick="filterKategori('elektronik')">
-Elektronik
-</button>
+    }
 
 
-<button onclick="filterKategori('aksesoris')">
-Aksesoris
-</button>
+    /* =========================
+       PESAN WHATSAPP
+    ========================= */
 
+    function pesanWhatsApp() {
 
-</div>
-<!-- =========================
-     PRODUK ILUL STORE
-========================= -->
+      const nama =
+        document.getElementById("nama").value.trim();
 
+      const nomor =
+        document.getElementById("nomor").value.trim();
 
-<section id="produk">
+      const total =
+        document.getElementById("totalHarga").innerText;
 
 
-<h2 class="title">
-🛍️ Produk ILUL STORE
-</h2>
+      if (!nama) {
+        alert("Silakan isi nama lengkap.");
+        return;
+      }
 
 
+      if (!nomor) {
+        alert("Silakan isi nomor WhatsApp.");
+        return;
+      }
 
-<div class="produk-container">
 
+      const pesan =
+        `Halo ILUL STORE 👋%0A%0A` +
+        `Saya ingin melakukan pemesanan.%0A%0A` +
+        `👤 Nama: ${nama}%0A` +
+        `📱 WhatsApp: ${nomor}%0A` +
+        `💰 Total: ${total}%0A%0A` +
+        `Mohon diproses ya. Terima kasih 🙏`;
 
 
-<!-- PRODUK 1 -->
+      /* GANTI NOMOR INI */
+      const nomorToko = "628XXXXXXXXXX";
 
-<div class="produk" data-kategori="fashion">
+      window.open(
+        `https://wa.me/${nomorToko}?text=${pesan}`,
+        "_blank"
+      );
 
+    }
 
-<span class="badge">
-🔥 TERLARIS
-</span>
-
-
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
-
-
-<h2>
-Kaos Premium
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-Kaos cotton premium nyaman dipakai.
-</p>
-
-
-<del>
-Rp100.000
-</del>
-
-
-<h2 class="harga">
-Rp75.000
-</h2>
-
-
-<p>
-📦 Stok : 25
-</p>
-
-
-<button onclick="tambahKeranjang('Kaos Premium',75000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- PRODUK 2 -->
-
-
-<div class="produk" data-kategori="sepatu">
-
-
-<span class="badge diskon">
-🔥 DISKON
-</span>
-
-
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
-
-
-<h2>
-Sepatu Sport
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-Sepatu olahraga ringan dan nyaman.
-</p>
-
-
-<del>
-Rp300.000
-</del>
-
-
-<h2 class="harga">
-Rp250.000
-</h2>
-
-
-<p>
-📦 Stok : 15
-</p>
-
-
-<button onclick="tambahKeranjang('Sepatu Sport',250000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- PRODUK 3 -->
-
-
-<div class="produk" data-kategori="tas">
-
-
-<span class="badge baru">
-✨ BARU
-</span>
-
-
-<img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62">
-
-
-<h2>
-Tas Fashion
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐
-</div>
-
-
-<p>
-Tas elegan untuk aktivitas sehari-hari.
-</p>
-
-
-<h2 class="harga">
-Rp150.000
-</h2>
-
-
-<p>
-📦 Stok : 20
-</p>
-
-
-<button onclick="tambahKeranjang('Tas Fashion',150000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- PRODUK 4 -->
-
-
-<div class="produk" data-kategori="aksesoris">
-
-
-<span class="badge">
-⭐ PREMIUM
-</span>
-
-
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-
-
-<h2>
-Jam Tangan
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-Jam tangan modern dan elegan.
-</p>
-
-
-<h2 class="harga">
-Rp300.000
-</h2>
-
-
-<p>
-📦 Stok : 10
-</p>
-
-
-<button onclick="tambahKeranjang('Jam Tangan',300000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- PRODUK 5 -->
-
-
-<div class="produk" data-kategori="fashion">
-
-
-<img src="https://images.unsplash.com/photo-1542272604-787c3835535d">
-
-
-<h2>
-Celana Jeans
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-Celana jeans premium bahan stretch.
-</p>
-
-
-<h2 class="harga">
-Rp180.000
-</h2>
-
-
-<p>
-📦 Stok : 18
-</p>
-
-
-<button onclick="tambahKeranjang('Celana Jeans',180000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- PRODUK 6 -->
-
-
-<div class="produk" data-kategori="fashion">
-
-
-<img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3">
-
-
-<h2>
-Hoodie Premium
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-Hoodie hangat bahan fleece.
-</p>
-
-
-<h2 class="harga">
-Rp220.000
-</h2>
-
-
-<p>
-📦 Stok : 20
-</p>
-
-
-<button onclick="tambahKeranjang('Hoodie Premium',220000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- PRODUK 7 -->
-
-
-<div class="produk" data-kategori="sepatu">
-
-
-<img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77">
-
-
-<h2>
-Sandal Casual
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐
-</div>
-
-
-<p>
-Sandal nyaman dipakai sehari-hari.
-</p>
-
-
-<h2 class="harga">
-Rp95.000
-</h2>
-
-
-<p>
-📦 Stok : 30
-</p>
-
-
-<button onclick="tambahKeranjang('Sandal Casual',95000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- PRODUK 8 -->
-
-
-<div class="produk" data-kategori="elektronik">
-
-
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
-
-
-<h2>
-Headset Bluetooth
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-Suara jernih dengan bass mantap.
-</p>
-
-
-<h2 class="harga">
-Rp275.000
-</h2>
-
-
-<p>
-📦 Stok : 15
-</p>
-
-
-<button onclick="tambahKeranjang('Headset Bluetooth',275000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- PRODUK 9 -->
-
-
-<div class="produk" data-kategori="aksesoris">
-
-
-<img src="https://images.unsplash.com/photo-1627123424574-724758594e93">
-
-
-<h2>
-Dompet Kulit
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-Dompet kulit premium elegan.
-</p>
-
-
-<h2 class="harga">
-Rp145.000
-</h2>
-
-
-<p>
-📦 Stok : 22
-</p>
-
-
-<button onclick="tambahKeranjang('Dompet Kulit',145000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- PRODUK 10 -->
-
-
-<div class="produk" data-kategori="elektronik">
-
-
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
-
-
-<h2>
-Smartphone Mini
-</h2>
-
-
-<div class="rating">
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-Smartphone ringan dan cepat.
-</p>
-
-
-<h2 class="harga">
-Rp1.500.000
-</h2>
-
-
-<p>
-📦 Stok : 8
-</p>
-
-
-<button onclick="tambahKeranjang('Smartphone Mini',1500000)">
-🛒 Tambah Keranjang
-</button>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-<!-- =========================
-     STYLE PRODUK & CHECKOUT
-========================= -->
-
-
-<style>
-
-
-.produk-container{
-
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:25px;
-
-padding:20px 8%;
-
-}
-
-
-
-.produk{
-
-
-background:#151515;
-
-border-radius:20px;
-
-padding:25px;
-
-text-align:center;
-
-position:relative;
-
-transition:.4s;
-
-box-shadow:0 0 20px #000;
-
-}
-
-
-
-.produk:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 0 25px gold;
-
-}
-
-
-
-.produk img{
-
-width:100%;
-
-height:220px;
-
-object-fit:cover;
-
-border-radius:15px;
-
-}
-
-
-
-.badge{
-
-
-position:absolute;
-
-top:15px;
-
-left:15px;
-
-background:red;
-
-padding:8px 15px;
-
-border-radius:20px;
-
-font-size:12px;
-
-}
-
-
-
-.diskon{
-
-background:orange;
-
-}
-
-
-
-.baru{
-
-background:green;
-
-}
-
-
-
-.rating{
-
-color:#ffd700;
-
-margin:10px;
-
-}
-
-
-
-.harga{
-
-color:#ffd700;
-
-}
-
-
-
-.produk button{
-
-
-background:#ffd700;
-
-border:none;
-
-padding:12px 20px;
-
-border-radius:25px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-
-.produk button:hover{
-
-background:white;
-
-}
-
-
-
-
-
-/* KERANJANG */
-
-
-.cart-box{
-
-
-background:#151515;
-
-padding:30px;
-
-margin:20px 8%;
-
-border-radius:20px;
-
-
-}
-
-
-
-.cart-box li{
-
-
-list-style:none;
-
-padding:15px;
-
-border-bottom:1px solid #333;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-}
-
-
-
-.cart-box button{
-
-
-background:red;
-
-color:white;
-
-border:none;
-
-padding:5px 10px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-}
-
-
-
-
-
-
-
-/* CHECKOUT */
-
-
-.checkout-box{
-
-
-background:#151515;
-
-padding:35px;
-
-margin:20px 8%;
-
-border-radius:25px;
-
-
-}
-
-
-
-.checkout-box input,
-.checkout-box textarea,
-.checkout-box select{
-
-
-width:100%;
-
-padding:15px;
-
-margin:10px 0;
-
-border-radius:10px;
-
-border:none;
-
-font-size:16px;
-
-
-}
-
-
-
-.checkout-box textarea{
-
-height:120px;
-
-}
-
-
-
-.checkout-btn{
-
-
-width:100%;
-
-padding:18px;
-
-background:#00c853;
-
-color:white;
-
-border:none;
-
-border-radius:30px;
-
-font-size:18px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-
-}
-
-
-
-.checkout-btn:hover{
-
-background:#009624;
-
-}
-
-
-
-
-
-@media(max-width:900px){
-
-
-.produk-container{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-
-}
-
-
-
-@media(max-width:600px){
-
-
-.produk-container{
-
-grid-template-columns:1fr;
-
-}
-
-
-}
-
-
-
-</style>
-
-
-
-
-
-
-
-<!-- =========================
-     KERANJANG
-========================= -->
-
-
-<section id="keranjang">
-
-
-<h2 class="title">
-🛒 Keranjang Saya
-</h2>
-
-
-
-<div class="cart-box">
-
-
-<ul id="isiKeranjang">
-
-</ul>
-
-
-
-<h2>
-
-Total :
-Rp<span id="total">0</span>
-
-</h2>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- =========================
-     CHECKOUT
-========================= -->
-
-
-<section id="checkout">
-
-
-<h2 class="title">
-📦 Checkout Pesanan
-</h2>
-
-
-
-<div class="checkout-box">
-
-
-
-<h3>
-👤 Data Pembeli
-</h3>
-
-
-
-<input 
-id="nama"
-placeholder="Nama Lengkap"
->
-
-
-
-<input 
-id="nomor"
-placeholder="Nomor WhatsApp"
->
-
-
-
-
-<h3>
-📍 Alamat Pengiriman
-</h3>
-
-
-
-<textarea 
-id="alamat"
-placeholder="Alamat lengkap pengiriman">
-</textarea>
-
-
-
-
-
-<h3>
-🚚 Pilih Kurir
-</h3>
-
-
-
-<select id="kurir">
-
-
-<option>
--- Pilih Kurir --
-</option>
-
-
-<option>
-J&T Express
-</option>
-
-
-<option>
-J&T Cargo
-</option>
-
-
-<option>
-JNE REG
-</option>
-
-
-<option>
-JNE YES
-</option>
-
-
-<option>
-SiCepat REG
-</option>
-
-
-<option>
-SiCepat BEST
-</option>
-
-
-<option>
-AnterAja
-</option>
-
-
-<option>
-POS Indonesia
-</option>
-
-
-<option>
-Ninja Xpress
-</option>
-
-
-</select>
-
-
-
-
-
-
-
-<h3>
-💳 Metode Pembayaran
-</h3>
-
-
-
-<select id="bayar">
-
-
-<option>
--- Pilih Pembayaran --
-</option>
-
-
-<option>
-Transfer Bank
-</option>
-
-
-<option>
-DANA
-</option>
-
-
-<option>
-OVO
-</option>
-
-
-<option>
-GoPay
-</option>
-
-
-<option>
-ShopeePay
-</option>
-
-
-<option>
-QRIS
-</option>
-
-
-<option>
-COD
-</option>
-
-
-</select>
-
-
-
-
-
-
-
-<button 
-class="checkout-btn"
-onclick="checkout()">
-
-✅ Pesan Sekarang via WhatsApp
-
-</button>
-
-
-
-</div>
-
-
-</section>
-<!-- =========================
-     CARA BELANJA
-========================= -->
-
-
-<section id="cara">
-
-
-<h2 class="title">
-🛒 Cara Berbelanja
-</h2>
-
-
-
-<div class="cara-container">
-
-
-
-<div class="cara-card">
-
-<h2>
-1️⃣ Cari Produk
-</h2>
-
-<p>
-Gunakan kolom pencarian untuk menemukan produk yang diinginkan.
-</p>
-
-</div>
-
-
-
-
-
-<div class="cara-card">
-
-<h2>
-2️⃣ Pilih Produk
-</h2>
-
-<p>
-Klik tombol tambah keranjang pada produk pilihan.
-</p>
-
-</div>
-
-
-
-
-
-<div class="cara-card">
-
-<h2>
-3️⃣ Isi Data
-</h2>
-
-<p>
-Masukkan nama, nomor WhatsApp dan alamat pengiriman.
-</p>
-
-</div>
-
-
-
-
-
-<div class="cara-card">
-
-<h2>
-4️⃣ Pilih Kurir
-</h2>
-
-<p>
-Pilih kurir pengiriman sesuai kebutuhan.
-</p>
-
-</div>
-
-
-
-
-
-<div class="cara-card">
-
-<h2>
-5️⃣ Pembayaran
-</h2>
-
-<p>
-Pilih pembayaran dan konfirmasi melalui WhatsApp.
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<!-- =========================
-     TESTIMONI
-========================= -->
-
-
-<section>
-
-
-<h2 class="title">
-💬 Testimoni Pelanggan
-</h2>
-
-
-
-<div class="testimoni">
-
-
-
-<div>
-
-⭐⭐⭐⭐⭐
-
-<p>
-"Produk bagus dan pengiriman cepat."
-</p>
-
-<b>- Andi</b>
-
-</div>
-
-
-
-
-
-<div>
-
-⭐⭐⭐⭐⭐
-
-<p>
-"Barang sesuai foto, pelayanan ramah."
-</p>
-
-<b>- Sinta</b>
-
-</div>
-
-
-
-
-
-<div>
-
-⭐⭐⭐⭐
-
-<p>
-"Harga murah kualitas bagus."
-</p>
-
-<b>- Rian</b>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- =========================
-     FAQ
-========================= -->
-
-
-<section>
-
-
-<h2 class="title">
-❓ FAQ
-</h2>
-
-
-
-<div class="faq">
-
-
-<h3>
-Apakah barang asli?
-</h3>
-
-
-<p>
-Ya, semua produk ILUL STORE diperiksa sebelum dikirim.
-</p>
-
-
-
-
-<h3>
-Berapa lama pengiriman?
-</h3>
-
-
-<p>
-Pengiriman mengikuti estimasi dari kurir yang dipilih.
-</p>
-
-
-
-
-<h3>
-Apakah bisa COD?
-</h3>
-
-
-<p>
-Bisa memilih COD jika tersedia di area tujuan.
-</p>
-
-
-
-
-<h3>
-Bagaimana cara komplain?
-</h3>
-
-
-<p>
-Hubungi WhatsApp ILUL STORE untuk bantuan.
-</p>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-
-<footer id="kontak">
-
-
-<h2>
-🛒 ILUL STORE
-</h2>
-
-
-<p>
-Toko Online Premium & Terpercaya
-</p>
-
-
-<p>
-📱 WhatsApp : 083835969176
-</p>
-
-
-<p>
-📷 Instagram : @ilulrs
-</p>
-
-
-<p>
-© 2026 ILUL STORE
-</p>
-
-
-
-</footer>
-
-
-
-
-
-
-<button id="atas" onclick="keAtas()">
-
-↑
-
-</button>
-
-
-
-
-
-
-<style>
-
-
-.cara-container{
-
-
-display:grid;
-
-grid-template-columns:repeat(5,1fr);
-
-gap:20px;
-
-padding:20px 8%;
-
-
-}
-
-
-
-.cara-card{
-
-
-background:#151515;
-
-padding:25px;
-
-border-radius:20px;
-
-text-align:center;
-
-
-}
-
-
-
-.cara-card h2{
-
-color:#ffd700;
-
-font-size:20px;
-
-}
-
-
-
-.testimoni{
-
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:20px;
-
-padding:20px 8%;
-
-
-}
-
-
-
-.testimoni div,
-.faq{
-
-
-background:#151515;
-
-padding:25px;
-
-border-radius:20px;
-
-text-align:center;
-
-
-}
-
-
-
-.faq{
-
-margin:20px 8%;
-
-}
-
-
-
-.faq h3{
-
-color:#ffd700;
-
-margin-top:20px;
-
-}
-
-
-
-footer{
-
-
-background:#111;
-
-padding:40px;
-
-text-align:center;
-
-
-}
-
-
-
-footer h2{
-
-color:#ffd700;
-
-}
-
-
-
-#atas{
-
-
-position:fixed;
-
-bottom:25px;
-
-right:25px;
-
-width:50px;
-
-height:50px;
-
-border:none;
-
-border-radius:50%;
-
-background:#ffd700;
-
-font-size:25px;
-
-cursor:pointer;
-
-
-}
-
-
-
-@media(max-width:900px){
-
-
-.cara-container{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-
-
-.testimoni{
-
-grid-template-columns:1fr;
-
-}
-
-
-}
-
-
-
-@media(max-width:600px){
-
-
-.cara-container{
-
-grid-template-columns:1fr;
-
-}
-
-
-}
-
-
-
-</style>
-<script>
-
-
-// =====================
-// DATA KERANJANG
-// =====================
-
-
-let keranjang=[];
-
-
-
-
-
-// =====================
-// TAMBAH KERANJANG
-// =====================
-
-
-function tambahKeranjang(nama,harga){
-
-
-keranjang.push({
-
-nama:nama,
-
-harga:harga,
-
-jumlah:1
-
-});
-
-
-tampilKeranjang();
-
-
-alert(nama+" masuk keranjang");
-
-
-}
-
-
-
-
-
-
-
-// =====================
-// TAMPILKAN KERANJANG
-// =====================
-
-
-function tampilKeranjang(){
-
-
-let list=document.getElementById("isiKeranjang");
-
-
-list.innerHTML="";
-
-
-let total=0;
-
-
-
-keranjang.forEach(function(item,index){
-
-
-
-total += item.harga * item.jumlah;
-
-
-
-list.innerHTML += `
-
-<li>
-
-<div>
-
-<b>${item.nama}</b>
-
-<br>
-
-Rp${item.harga.toLocaleString("id-ID")}
-
-<br>
-
-Jumlah : ${item.jumlah}
-
-</div>
-
-
-<div>
-
-
-<button onclick="kurang(${index})">
-➖
-</button>
-
-
-<button onclick="tambahJumlah(${index})">
-➕
-</button>
-
-
-<button onclick="hapus(${index})">
-❌
-</button>
-
-
-</div>
-
-
-</li>
-
-`;
-
-
-
-});
-
-
-
-document.getElementById("total").innerHTML =
-total.toLocaleString("id-ID");
-
-
-}
-
-
-
-
-
-
-
-// =====================
-// TAMBAH JUMLAH
-// =====================
-
-
-function tambahJumlah(index){
-
-
-keranjang[index].jumlah++;
-
-
-tampilKeranjang();
-
-
-}
-
-
-
-
-
-
-// =====================
-// KURANG JUMLAH
-// =====================
-
-
-function kurang(index){
-
-
-if(keranjang[index].jumlah>1){
-
-keranjang[index].jumlah--;
-
-}else{
-
-keranjang.splice(index,1);
-
-}
-
-
-tampilKeranjang();
-
-
-}
-
-
-
-
-
-
-// =====================
-// HAPUS PRODUK
-// =====================
-
-
-function hapus(index){
-
-
-keranjang.splice(index,1);
-
-
-tampilKeranjang();
-
-
-}
-
-
-
-
-
-
-
-// =====================
-// PENCARIAN PRODUK
-// =====================
-
-
-function cariProduk(){
-
-
-let cari=document
-.getElementById("cariProduk")
-.value
-.toLowerCase();
-
-
-
-let produk=document.querySelectorAll(".produk");
-
-
-
-produk.forEach(function(item){
-
-
-let nama=item.innerText.toLowerCase();
-
-
-
-if(nama.includes(cari)){
-
-
-item.style.display="block";
-
-
-}else{
-
-
-item.style.display="none";
-
-
-}
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-// =====================
-// FILTER KATEGORI
-// =====================
-
-
-function filterKategori(kategori){
-
-
-
-let produk=document.querySelectorAll(".produk");
-
-
-
-produk.forEach(function(item){
-
-
-
-if(kategori=="all"){
-
-
-item.style.display="block";
-
-
-}
-
-else if(item.dataset.kategori==kategori){
-
-
-item.style.display="block";
-
-
-}
-
-else{
-
-
-item.style.display="none";
-
-
-}
-
-
-});
-
-
-
-}
-
-
-
-
-
-
-
-
-// =====================
-// CHECKOUT WHATSAPP
-// =====================
-
-
-function checkout(){
-
-
-
-let nama=
-document.getElementById("nama").value;
-
-
-
-let nomor=
-document.getElementById("nomor").value;
-
-
-
-let alamat=
-document.getElementById("alamat").value;
-
-
-
-let kurir=
-document.getElementById("kurir").value;
-
-
-
-let bayar=
-document.getElementById("bayar").value;
-
-
-
-
-
-if(nama=="" || alamat==""){
-
-
-alert("Lengkapi data pembeli");
-
-
-return;
-
-
-}
-
-
-
-
-
-if(keranjang.length==0){
-
-
-alert("Keranjang masih kosong");
-
-
-return;
-
-
-}
-
-
-
-
-
-
-let pesan=
-
-"Halo ILUL STORE%0A";
-
-
-
-pesan +=
-
-"Saya ingin membeli:%0A%0A";
-
-
-
-
-
-let total=0;
-
-
-
-keranjang.forEach(function(item){
-
-
-
-let subtotal=item.harga*item.jumlah;
-
-
-
-total += subtotal;
-
-
-
-pesan +=
-
-"- "+item.nama+
-
-" x"+item.jumlah+
-
-" Rp"+
-
-subtotal.toLocaleString("id-ID")
-
-+
-
-"%0A";
-
-
-});
-
-
-
-
-
-pesan +=
-
-"%0ANama : "+nama+
-
-"%0ANomor : "+nomor+
-
-"%0AAlamat : "+alamat+
-
-"%0AKurir : "+kurir+
-
-"%0APembayaran : "+bayar+
-
-"%0ATotal : Rp"+
-
-total.toLocaleString("id-ID");
-
-
-
-
-
-
-
-window.open(
-
-"https://wa.me/6283835969176?text="+pesan
-
-);
-
-
-
-}
-
-
-
-
-
-
-
-
-// =====================
-// TOMBOL KE ATAS
-// =====================
-
-
-function keAtas(){
-
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-
-}
-
-
-
-</script>
-
+  </script>
 
 </body>
-
 </html>
