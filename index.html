@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,42 +7,63 @@
 <title>ILUL STORE 🛒</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f5f5f5;
+  background:#f6f7f9;
   color:#222;
 }
 
-/* ================= HEADER ================= */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#fff;
-  box-shadow:0 2px 15px rgba(0,0,0,.08);
+
+  background:rgba(255,255,255,.96);
+
+  box-shadow:
+    0 2px 15px rgba(0,0,0,.08);
+
+  backdrop-filter:blur(12px);
 }
 
 .nav{
-  max-width:1200px;
+  max-width:1240px;
   margin:auto;
+
   padding:15px 20px;
+
   display:flex;
   align-items:center;
+
   gap:20px;
 }
 
 .logo{
   font-size:25px;
   font-weight:900;
-  color:#e11d48;
   white-space:nowrap;
+  color:#e11d48;
+  letter-spacing:-1px;
 }
 
 .logo span{
@@ -57,287 +77,871 @@ header{
 
 .search input{
   width:100%;
-  height:45px;
-  border:1px solid #ddd;
+  height:46px;
+
+  border:1px solid #e5e7eb;
+
   border-radius:25px;
-  padding:0 20px 0 45px;
+
+  padding:
+    0 20px 0 45px;
+
   outline:none;
-  background:#f7f7f7;
+
+  background:#f7f7f8;
+
   font-size:14px;
+
+  transition:.2s;
 }
 
 .search input:focus{
   border-color:#e11d48;
   background:#fff;
+
+  box-shadow:
+    0 0 0 4px rgba(225,29,72,.07);
 }
 
 .search-icon{
   position:absolute;
+
   left:17px;
   top:13px;
+
+  font-size:17px;
 }
 
 .cart-btn{
   border:0;
   background:#fff;
+
   font-size:25px;
+
   cursor:pointer;
+
   position:relative;
+
+  width:45px;
+  height:45px;
+
+  border-radius:50%;
+
+  transition:.2s;
+}
+
+.cart-btn:hover{
+  background:#fff1f2;
+  transform:scale(1.05);
 }
 
 .cart-count{
   position:absolute;
-  right:-7px;
-  top:-7px;
-  width:21px;
+
+  right:-2px;
+  top:-2px;
+
+  min-width:21px;
   height:21px;
+
+  padding:0 5px;
+
   background:#e11d48;
   color:white;
+
   border-radius:50%;
+
   font-size:11px;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   font-weight:bold;
 }
 
-/* ================= HERO ================= */
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
-  max-width:1200px;
-  margin:20px auto;
+  max-width:1240px;
+
+  margin:20px auto 25px;
+
   padding:0 20px;
 }
 
 .hero-box{
-  min-height:330px;
-  border-radius:25px;
-  padding:45px;
+  min-height:410px;
+
+  border-radius:28px;
+
+  padding:45px 50px;
+
   display:flex;
   align-items:center;
+
   position:relative;
+
   overflow:hidden;
+
   color:#fff;
 
   background:
-  radial-gradient(circle at 90% 20%,rgba(255,255,255,.25),transparent 25%),
-  linear-gradient(135deg,#be123c,#e11d48,#fb7185);
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(255,255,255,.22),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 70% 100%,
+      rgba(255,255,255,.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #9f1239 0%,
+      #e11d48 48%,
+      #fb7185 100%
+    );
+
+  box-shadow:
+    0 18px 45px rgba(225,29,72,.20);
 }
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
 
 .hero-content{
   position:relative;
-  z-index:2;
-  max-width:600px;
+  z-index:5;
+
+  width:52%;
+  max-width:610px;
 }
 
 .badge{
-  display:inline-block;
-  background:rgba(255,255,255,.2);
-  padding:8px 14px;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+
+  background:rgba(255,255,255,.16);
+
+  border:1px solid rgba(255,255,255,.2);
+
+  padding:9px 15px;
+
   border-radius:30px;
+
   font-size:12px;
-  margin-bottom:15px;
+  font-weight:700;
+
+  margin-bottom:17px;
+
+  backdrop-filter:blur(8px);
 }
 
 .hero h1{
-  font-size:clamp(35px,6vw,62px);
-  line-height:1;
+  font-size:clamp(38px,5vw,62px);
+
+  line-height:.98;
+
+  letter-spacing:-2px;
+
   margin-bottom:18px;
 }
 
 .hero p{
   line-height:1.7;
-  opacity:.9;
+
+  opacity:.92;
+
   font-size:15px;
+
+  max-width:540px;
 }
 
 .hero button{
-  margin-top:20px;
+  margin-top:22px;
+
   border:0;
+
   background:#fff;
+
   color:#e11d48;
-  padding:14px 24px;
+
+  padding:14px 25px;
+
   border-radius:30px;
-  font-weight:bold;
+
+  font-weight:800;
+
+  font-size:14px;
+
   cursor:pointer;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.12);
+
+  transition:.25s;
 }
 
-.hero-icon{
+.hero button:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 12px 25px rgba(0,0,0,.18);
+}
+
+.hero-mini-info{
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:14px;
+
+  margin-top:20px;
+
+  font-size:11px;
+
+  font-weight:600;
+
+  opacity:.9;
+}
+
+.hero-mini-info span{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+
+/* =====================================================
+   HERO PRODUCTS
+===================================================== */
+
+.hero-products{
   position:absolute;
-  right:50px;
-  bottom:-30px;
-  font-size:200px;
-  opacity:.2;
+
+  right:35px;
+  top:25px;
+
+  width:48%;
+  height:360px;
+
+  z-index:3;
 }
 
-/* ================= CONTAINER ================= */
+.hero-products::before{
+  content:"";
+
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  border-radius:50%;
+
+  right:30px;
+  top:30px;
+
+  background:rgba(255,255,255,.10);
+
+  border:
+    1px solid rgba(255,255,255,.12);
+
+  box-shadow:
+    0 0 80px rgba(255,255,255,.08);
+}
+
+
+/* =====================================================
+   HERO PRODUCT CARD
+===================================================== */
+
+.hero-product{
+  position:absolute;
+
+  background:#fff;
+
+  border-radius:18px;
+
+  padding:7px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.20);
+
+  overflow:hidden;
+
+  transition:.35s;
+}
+
+.hero-product:hover{
+  transform:
+    translateY(-8px)
+    rotate(0deg) !important;
+
+  z-index:20;
+}
+
+.hero-product img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  border-radius:13px;
+}
+
+
+/* PRODUK 1 */
+
+.hero-product-1{
+  width:190px;
+  height:245px;
+
+  right:175px;
+  top:35px;
+
+  transform:rotate(-6deg);
+
+  z-index:5;
+}
+
+
+/* PRODUK 2 */
+
+.hero-product-2{
+  width:165px;
+  height:210px;
+
+  right:0;
+  top:85px;
+
+  transform:rotate(7deg);
+
+  z-index:4;
+}
+
+
+/* PRODUK 3 */
+
+.hero-product-3{
+  width:145px;
+  height:185px;
+
+  right:285px;
+  bottom:0;
+
+  transform:rotate(5deg);
+
+  z-index:6;
+}
+
+
+/* =====================================================
+   HERO PRODUCT INFO
+===================================================== */
+
+.hero-product-info{
+  position:absolute;
+
+  left:12px;
+  right:12px;
+  bottom:12px;
+
+  padding:9px 10px;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:3px;
+
+  background:rgba(255,255,255,.94);
+
+  border-radius:10px;
+
+  color:#111827;
+
+  backdrop-filter:blur(8px);
+}
+
+.hero-product-info strong{
+  font-size:11px;
+}
+
+.hero-product-info span{
+  color:#e11d48;
+
+  font-size:11px;
+
+  font-weight:800;
+}
+
+
+/* BEST SELLER */
+
+.hero-product-label{
+  position:absolute;
+
+  z-index:5;
+
+  top:12px;
+  left:12px;
+
+  background:#e11d48;
+
+  color:#fff;
+
+  padding:5px 8px;
+
+  border-radius:6px;
+
+  font-size:8px;
+
+  font-weight:800;
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.15);
+}
+
+
+/* =====================================================
+   FLOATING PROMO
+===================================================== */
+
+.hero-floating{
+  position:absolute;
+
+  right:5px;
+  bottom:8px;
+
+  display:flex;
+  align-items:center;
+
+  gap:9px;
+
+  background:#fff;
+
+  color:#111827;
+
+  padding:10px 14px;
+
+  border-radius:13px;
+
+  box-shadow:
+    0 12px 25px rgba(0,0,0,.18);
+
+  z-index:15;
+
+  animation:
+    floatPromo 3s ease-in-out infinite;
+}
+
+.hero-floating > span{
+  width:32px;
+  height:32px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#fff1f2;
+
+  border-radius:9px;
+
+  font-size:17px;
+}
+
+.hero-floating strong{
+  display:block;
+
+  font-size:11px;
+}
+
+.hero-floating small{
+  display:block;
+
+  color:#e11d48;
+
+  font-size:9px;
+
+  margin-top:2px;
+}
+
+@keyframes floatPromo{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-6px);
+  }
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container{
-  max-width:1200px;
+  max-width:1240px;
+
   margin:auto;
-  padding:0 20px 60px;
+
+  padding:
+    0 20px 60px;
 }
 
-/* ================= CATEGORY ================= */
+
+/* =====================================================
+   CATEGORY
+===================================================== */
 
 .category-title{
-  margin:30px 0 15px;
-  font-size:21px;
+  margin:25px 0 15px;
+
+  font-size:22px;
+
+  letter-spacing:-.5px;
 }
 
 .categories{
   display:flex;
+
   gap:10px;
+
   overflow-x:auto;
-  padding-bottom:5px;
+
+  padding:
+    3px 2px 10px;
+
+  scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+  display:none;
 }
 
 .category{
   flex-shrink:0;
-  border:1px solid #ddd;
+
+  border:
+    1px solid #e5e7eb;
+
   background:#fff;
-  padding:11px 18px;
+
+  padding:
+    11px 18px;
+
   border-radius:25px;
+
   cursor:pointer;
+
   transition:.2s;
+
+  font-size:13px;
+
+  font-weight:600;
+
+  box-shadow:
+    0 2px 5px rgba(0,0,0,.03);
 }
 
-.category:hover,
+.category:hover{
+  color:#e11d48;
+
+  border-color:#fda4af;
+
+  transform:translateY(-2px);
+}
+
 .category.active{
   color:white;
-  background:#e11d48;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e11d48,
+      #f43f5e
+    );
+
   border-color:#e11d48;
+
+  box-shadow:
+    0 6px 15px rgba(225,29,72,.2);
 }
 
-/* ================= PRODUCTS ================= */
+
+/* =====================================================
+   PRODUCT TITLE
+===================================================== */
 
 .product-title{
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
-  margin:30px 0 18px;
+
+  margin:32px 0 18px;
 }
 
 .product-title h2{
-  font-size:21px;
+  font-size:22px;
+
+  letter-spacing:-.5px;
 }
 
 .product-title span{
   color:#888;
+
   font-size:13px;
 }
 
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
 .products{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:15px;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:18px;
 }
 
 .product{
   background:#fff;
-  border-radius:17px;
+
+  border-radius:18px;
+
   overflow:hidden;
-  border:1px solid #eee;
-  transition:.25s;
+
+  border:
+    1px solid #eee;
+
+  transition:
+    transform .25s,
+    box-shadow .25s,
+    border-color .25s;
+
+  box-shadow:
+    0 3px 10px rgba(0,0,0,.03);
 }
 
 .product:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  transform:translateY(-7px);
+
+  border-color:#fbcfe8;
+
+  box-shadow:
+    0 18px 35px rgba(0,0,0,.11);
 }
 
-/* FOTO PRODUK */
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
 
 .product-image{
-  height:220px;
+  height:235px;
+
   position:relative;
+
   overflow:hidden;
-  background:#eee;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fafc,
+      #f1f5f9
+    );
 }
 
 .product-image img{
   width:100%;
   height:100%;
+
   display:block;
+
   object-fit:cover;
-  transition:.3s;
+
+  transition:
+    transform .5s ease;
 }
 
 .product:hover .product-image img{
-  transform:scale(1.06);
+  transform:scale(1.08);
 }
+
+.product-image::after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.12),
+      transparent 35%
+    );
+
+  pointer-events:none;
+}
+
+
+/* DISCOUNT */
 
 .discount{
   position:absolute;
-  z-index:2;
+
+  z-index:3;
+
   top:10px;
   left:10px;
-  background:#fee2e2;
-  color:#dc2626;
-  padding:6px 8px;
+
+  background:#e11d48;
+
+  color:white;
+
+  padding:
+    6px 9px;
+
   border-radius:7px;
+
   font-size:10px;
-  font-weight:bold;
+
+  font-weight:800;
+
+  box-shadow:
+    0 4px 10px rgba(225,29,72,.25);
 }
 
+
+/* =====================================================
+   PRODUCT INFO
+===================================================== */
+
 .product-info{
-  padding:13px;
+  padding:14px;
 }
 
 .product-name{
   font-size:14px;
-  font-weight:bold;
-  min-height:35px;
+
+  font-weight:700;
+
+  line-height:1.4;
+
+  min-height:40px;
+
+  color:#111827;
 }
 
 .rating{
   color:#f59e0b;
+
   font-size:12px;
+
   margin-top:7px;
 }
 
 .sold{
   color:#999;
+
   font-size:10px;
 }
 
 .price{
   font-size:17px;
-  font-weight:800;
+
+  font-weight:900;
+
   margin-top:9px;
+
+  color:#e11d48;
 }
 
 .old-price{
-  color:#999;
+  color:#aaa;
+
   font-size:10px;
+
   text-decoration:line-through;
+
   margin-left:5px;
+
+  font-weight:400;
 }
+
+
+/* =====================================================
+   ADD CART
+===================================================== */
 
 .add-cart{
   width:100%;
+
   margin-top:12px;
+
   padding:10px;
-  background:white;
+
+  background:#fff;
+
   color:#e11d48;
-  border:1px solid #e11d48;
+
+  border:
+    1px solid #fecdd3;
+
   border-radius:9px;
-  font-weight:bold;
+
+  font-weight:800;
+
+  font-size:12px;
+
   cursor:pointer;
+
+  transition:.2s;
 }
 
 .add-cart:hover{
   background:#e11d48;
+
   color:white;
+
+  border-color:#e11d48;
+
+  box-shadow:
+    0 7px 15px rgba(225,29,72,.2);
 }
 
-/* ================= CART ================= */
+
+/* =====================================================
+   CART
+===================================================== */
 
 .overlay{
   position:fixed;
+
   inset:0;
+
   z-index:2000;
-  background:rgba(0,0,0,.5);
+
+  background:
+    rgba(0,0,0,.5);
+
   display:none;
 }
 
@@ -347,55 +951,85 @@ header{
 
 .cart{
   position:absolute;
+
   right:0;
   top:0;
+
   height:100%;
+
   width:min(430px,100%);
+
   background:white;
+
   padding:20px;
+
   display:flex;
+
   flex-direction:column;
+
+  box-shadow:
+    -10px 0 30px rgba(0,0,0,.12);
 }
 
 .cart-header{
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
-  border-bottom:1px solid #eee;
+
+  border-bottom:
+    1px solid #eee;
+
   padding-bottom:15px;
 }
 
 .close{
   border:0;
+
   background:none;
+
   font-size:28px;
+
   cursor:pointer;
+
+  color:#555;
 }
 
 .cart-items{
   flex:1;
+
   overflow-y:auto;
 }
 
 .cart-item{
   display:flex;
+
   gap:12px;
+
   padding:15px 0;
-  border-bottom:1px solid #eee;
+
+  border-bottom:
+    1px solid #eee;
 }
 
 .cart-image{
   width:75px;
   height:75px;
+
   flex-shrink:0;
+
   border-radius:10px;
+
   overflow:hidden;
+
   background:#eee;
 }
 
 .cart-image img{
   width:100%;
   height:100%;
+
   object-fit:cover;
 }
 
@@ -405,68 +1039,108 @@ header{
 
 .cart-name{
   font-weight:bold;
+
   font-size:13px;
 }
 
 .cart-price{
   color:#e11d48;
+
   font-size:13px;
+
   margin:5px 0;
 }
 
 .qty{
   display:flex;
+
   align-items:center;
+
   gap:8px;
 }
 
 .qty button{
   width:26px;
   height:26px;
-  border:1px solid #ddd;
+
+  border:
+    1px solid #ddd;
+
   background:white;
+
   border-radius:5px;
+
   cursor:pointer;
 }
 
 .delete{
   color:#dc2626;
+
   margin-left:5px;
 }
 
 .cart-footer{
-  border-top:1px solid #eee;
+  border-top:
+    1px solid #eee;
+
   padding-top:15px;
 }
 
 .total{
   display:flex;
+
   justify-content:space-between;
+
   font-weight:bold;
+
   margin-bottom:15px;
 }
 
 .checkout{
   width:100%;
+
   padding:14px;
+
   background:#16a34a;
+
   color:white;
+
   border:0;
+
   border-radius:10px;
+
   font-weight:bold;
+
   cursor:pointer;
+
+  transition:.2s;
 }
 
-/* ================= CHECKOUT ================= */
+.checkout:hover{
+  background:#15803d;
+}
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
 
 .checkout-overlay{
   position:fixed;
+
   inset:0;
+
   z-index:3000;
-  background:rgba(0,0,0,.6);
+
+  background:
+    rgba(0,0,0,.6);
+
   display:none;
+
   align-items:center;
+
   justify-content:center;
+
   padding:20px;
 }
 
@@ -476,9 +1150,15 @@ header{
 
 .checkout-box{
   width:min(450px,100%);
+
   background:white;
+
   padding:25px;
+
   border-radius:20px;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.2);
 }
 
 .checkout-box h2{
@@ -487,108 +1167,336 @@ header{
 
 .checkout-box p{
   color:#777;
+
   font-size:12px;
+
   margin-bottom:18px;
 }
 
 .checkout-box input,
 .checkout-box textarea{
   width:100%;
+
   padding:13px;
+
   margin-bottom:10px;
-  border:1px solid #ddd;
+
+  border:
+    1px solid #ddd;
+
   border-radius:9px;
+
   outline:none;
+
   font-family:Arial;
+}
+
+.checkout-box input:focus,
+.checkout-box textarea:focus{
+  border-color:#e11d48;
+
+  box-shadow:
+    0 0 0 3px rgba(225,29,72,.07);
 }
 
 .checkout-box textarea{
   height:85px;
+
   resize:none;
 }
 
 .wa{
   width:100%;
+
   padding:14px;
+
   border:0;
+
   border-radius:10px;
+
   background:#16a34a;
+
   color:white;
+
   font-weight:bold;
+
   cursor:pointer;
 }
 
 .cancel{
   width:100%;
+
   margin-top:8px;
+
   padding:12px;
+
   border:0;
+
   border-radius:10px;
+
   background:#f3f4f6;
+
   cursor:pointer;
 }
 
-/* ================= EMPTY ================= */
+
+/* =====================================================
+   EMPTY
+===================================================== */
 
 .empty{
   text-align:center;
+
   color:#888;
+
   padding:40px;
 }
 
-/* ================= FOOTER ================= */
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
   background:#111827;
+
   color:#aaa;
+
   text-align:center;
+
   padding:35px 20px;
+
   font-size:12px;
 }
 
 footer strong{
   color:white;
+
   font-size:16px;
 }
 
-/* ================= MOBILE ================= */
 
-@media(max-width:950px){
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1050px){
 
   .products{
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+      repeat(4,1fr);
+  }
+
+  .hero-products{
+    right:15px;
+
+    transform:scale(.9);
+
+    transform-origin:right center;
+  }
+
+  .hero-content{
+    width:55%;
   }
 
 }
+
+
+/* =====================================================
+   TABLET KECIL
+===================================================== */
+
+@media(max-width:800px){
+
+  .products{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+  .hero-box{
+    min-height:390px;
+
+    padding:
+      35px 30px;
+  }
+
+  .hero-content{
+    width:55%;
+  }
+
+  .hero-products{
+    right:-30px;
+
+    transform:scale(.78);
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:650px){
 
   .nav{
     flex-wrap:wrap;
+
+    gap:12px;
+  }
+
+  .logo{
+    font-size:21px;
   }
 
   .search{
     order:3;
+
     flex-basis:100%;
   }
 
-  .hero-box{
-    padding:30px 22px;
-    min-height:360px;
+
+  /* HERO */
+
+  .hero{
+    margin-top:12px;
+
+    padding:
+      0 12px;
   }
 
-  .hero-icon{
-    right:-10px;
-    font-size:130px;
+  .hero-box{
+    min-height:540px;
+
+    padding:
+      28px 22px;
+
+    align-items:flex-start;
+
+    border-radius:22px;
+  }
+
+  .hero-content{
+    width:100%;
+
+    max-width:none;
+  }
+
+  .hero h1{
+    font-size:38px;
+
+    letter-spacing:-1.5px;
+  }
+
+  .hero p{
+    font-size:13px;
+
+    max-width:95%;
+  }
+
+  .hero-mini-info{
+    display:none;
+  }
+
+
+  /* HERO PRODUCT */
+
+  .hero-products{
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    top:auto;
+    bottom:5px;
+
+    width:100%;
+    height:210px;
+
+    transform:none;
+  }
+
+  .hero-products::before{
+    width:190px;
+    height:190px;
+
+    right:50px;
+    top:0;
+  }
+
+  .hero-product-1{
+    width:130px;
+    height:165px;
+
+    right:calc(50% - 65px);
+
+    top:5px;
+  }
+
+  .hero-product-2{
+    width:110px;
+    height:140px;
+
+    right:12px;
+
+    top:35px;
+  }
+
+  .hero-product-3{
+    width:105px;
+    height:135px;
+
+    left:12px;
+    right:auto;
+
+    bottom:5px;
+  }
+
+  .hero-floating{
+    right:12px;
+
+    bottom:0;
+
+    padding:
+      7px 9px;
+  }
+
+  .hero-floating > span{
+    width:26px;
+    height:26px;
+
+    font-size:14px;
+  }
+
+  .hero-floating strong{
+    font-size:9px;
+  }
+
+  .hero-floating small{
+    font-size:8px;
+  }
+
+
+  /* PRODUCTS */
+
+  .container{
+    padding:
+      0 12px 45px;
   }
 
   .products{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
+
     gap:10px;
   }
 
+  .product{
+    border-radius:14px;
+  }
+
   .product-image{
-    height:175px;
+    height:190px;
   }
 
   .product-info{
@@ -599,11 +1507,65 @@ footer strong{
     font-size:12px;
   }
 
+  .rating{
+    font-size:10px;
+  }
+
+  .sold{
+    font-size:9px;
+  }
+
   .price{
-    font-size:15px;
+    font-size:14px;
+  }
+
+  .old-price{
+    font-size:9px;
+  }
+
+  .add-cart{
+    font-size:10px;
+
+    padding:
+      9px 5px;
   }
 
 }
+
+
+/* =====================================================
+   HP SANGAT KECIL
+===================================================== */
+
+@media(max-width:400px){
+
+  .hero-box{
+    min-height:515px;
+  }
+
+  .hero h1{
+    font-size:33px;
+  }
+
+  .hero-product-1{
+    width:115px;
+    height:150px;
+
+    right:calc(50% - 57px);
+  }
+
+  .hero-product-2{
+    width:95px;
+    height:125px;
+  }
+
+  .hero-product-3{
+    width:90px;
+    height:120px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -611,7 +1573,9 @@ footer strong{
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -637,6 +1601,7 @@ footer strong{
     <button
       class="cart-btn"
       onclick="openCart()"
+      aria-label="Keranjang"
     >
 
       🛒
@@ -653,7 +1618,9 @@ footer strong{
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
@@ -671,18 +1638,128 @@ footer strong{
       </h1>
 
       <p>
-        Belanja fashion favoritmu di ILUL STORE.
-        Tersedia baju, sepatu, tas, jam dan sandal.
+        Temukan fashion favoritmu dengan harga terbaik.
+        Baju, sepatu, tas, jam dan sandal tersedia di
+        ILUL STORE.
       </p>
 
       <button onclick="scrollToProducts()">
         🛍️ Belanja Sekarang
       </button>
 
+      <div class="hero-mini-info">
+
+        <span>
+          ✓ Produk Berkualitas
+        </span>
+
+        <span>
+          ✓ Harga Terjangkau
+        </span>
+
+        <span>
+          ✓ Bisa COD
+        </span>
+
+      </div>
+
     </div>
 
-    <div class="hero-icon">
-      👕
+
+    <!-- PRODUK DI HERO -->
+
+    <div class="hero-products">
+
+      <div class="hero-product hero-product-1">
+
+        <span class="hero-product-label">
+          BEST SELLER
+        </span>
+
+        <img
+          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=85"
+          alt="Kaos Premium"
+        >
+
+        <div class="hero-product-info">
+
+          <strong>
+            Kaos Premium
+          </strong>
+
+          <span>
+            Rp85.000
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-product hero-product-2">
+
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=85"
+          alt="Sneakers Casual"
+        >
+
+        <div class="hero-product-info">
+
+          <strong>
+            Sneakers
+          </strong>
+
+          <span>
+            Rp275.000
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-product hero-product-3">
+
+        <img
+          src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=85"
+          alt="Tas Premium"
+        >
+
+        <div class="hero-product-info">
+
+          <strong>
+            Tas Premium
+          </strong>
+
+          <span>
+            Rp125.000
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-floating">
+
+        <span>
+          🔥
+        </span>
+
+        <div>
+
+          <strong>
+            Promo Hari Ini
+          </strong>
+
+          <small>
+            Diskon hingga 30%
+          </small>
+
+        </div>
+
+      </div>
+
     </div>
 
   </div>
@@ -690,10 +1767,14 @@ footer strong{
 </section>
 
 
-<!-- ================= CONTENT ================= -->
+<!-- =====================================================
+     CONTENT
+===================================================== -->
 
 <main class="container">
 
+
+  <!-- CATEGORY -->
 
   <h2 class="category-title">
     🏷️ Kategori
@@ -747,6 +1828,8 @@ footer strong{
   </div>
 
 
+  <!-- PRODUCT TITLE -->
+
   <div
     class="product-title"
     id="produk"
@@ -763,6 +1846,8 @@ footer strong{
   </div>
 
 
+  <!-- PRODUCTS -->
+
   <div
     class="products"
     id="products"
@@ -772,7 +1857,9 @@ footer strong{
 </main>
 
 
-<!-- ================= CART ================= -->
+<!-- =====================================================
+     CART
+===================================================== -->
 
 <div
   class="overlay"
@@ -835,7 +1922,9 @@ footer strong{
 </div>
 
 
-<!-- ================= CHECKOUT ================= -->
+<!-- =====================================================
+     CHECKOUT
+===================================================== -->
 
 <div
   class="checkout-overlay"
@@ -892,6 +1981,10 @@ footer strong{
 </div>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
   <strong>
@@ -923,7 +2016,7 @@ const products = [
     category:"Baju",
     price:85000,
     old:110000,
-    image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★★",
     sold:"1,2rb terjual"
@@ -935,7 +2028,7 @@ const products = [
     category:"Baju",
     price:145000,
     old:180000,
-    image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★★",
     sold:"850 terjual"
@@ -947,7 +2040,7 @@ const products = [
     category:"Sepatu",
     price:275000,
     old:350000,
-    image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★★",
     sold:"2,1rb terjual"
@@ -959,7 +2052,7 @@ const products = [
     category:"Sepatu",
     price:320000,
     old:399000,
-    image:"https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★",
     sold:"900 terjual"
@@ -971,7 +2064,7 @@ const products = [
     category:"Tas",
     price:125000,
     old:170000,
-    image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★★",
     sold:"1,5rb terjual"
@@ -983,7 +2076,7 @@ const products = [
     category:"Tas",
     price:185000,
     old:240000,
-    image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★★",
     sold:"700 terjual"
@@ -995,7 +2088,7 @@ const products = [
     category:"Jam",
     price:199000,
     old:250000,
-    image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★★",
     sold:"1,1rb terjual"
@@ -1007,7 +2100,7 @@ const products = [
     category:"Jam",
     price:225000,
     old:300000,
-    image:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★",
     sold:"600 terjual"
@@ -1019,7 +2112,7 @@ const products = [
     category:"Sandal",
     price:75000,
     old:100000,
-    image:"https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★★",
     sold:"2rb terjual"
@@ -1031,7 +2124,7 @@ const products = [
     category:"Sandal",
     price:89000,
     old:120000,
-    image:"https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=800&q=80",
+    image:"https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=800&q=85",
     fallback:"https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=800&q=70",
     rating:"★★★★★",
     sold:"1,3rb terjual"
@@ -1083,9 +2176,13 @@ function displayProducts(list=products){
   if(list.length===0){
 
     container.innerHTML=`
+
       <div class="empty">
+
         😢 Produk tidak ditemukan.
+
       </div>
+
     `;
 
     document.getElementById(
@@ -1100,8 +2197,10 @@ function displayProducts(list=products){
 
     const discount =
       Math.round(
-        ((product.old-product.price)/
-        product.old)*100
+        (
+          (product.old-product.price) /
+          product.old
+        ) * 100
       );
 
 
@@ -1130,6 +2229,7 @@ function displayProducts(list=products){
           <div class="product-name">
             ${product.name}
           </div>
+
 
           <div class="rating">
 
@@ -1171,7 +2271,8 @@ function displayProducts(list=products){
 
   document.getElementById(
     "productInfo"
-  ).innerText=list.length+" produk";
+  ).innerText =
+    list.length + " produk";
 
 }
 
@@ -1228,10 +2329,12 @@ function filterCategory(category,element){
   }else{
 
     displayProducts(
+
       products.filter(
-        product=>
-          product.category===category
+        product =>
+          product.category === category
       )
+
     );
 
   }
@@ -1247,7 +2350,7 @@ function addToCart(id){
 
   const product =
     products.find(
-      item=>item.id===id
+      item => item.id === id
     );
 
 
@@ -1256,7 +2359,7 @@ function addToCart(id){
 
   const existing =
     cart.find(
-      item=>item.id===id
+      item => item.id === id
     );
 
 
@@ -1267,26 +2370,35 @@ function addToCart(id){
   }else{
 
     cart.push({
+
       id:product.id,
+
       name:product.name,
+
       price:product.price,
+
       image:product.image,
+
       fallback:product.fallback,
+
       qty:1
+
     });
 
   }
 
 
   saveCart();
+
   updateCart();
+
   openCart();
 
 }
 
 
 /* =====================================================
-   SAVE
+   SAVE CART
 ===================================================== */
 
 function saveCart(){
@@ -1319,15 +2431,18 @@ function updateCart(){
 
 
   let total=0;
+
   let totalQty=0;
 
 
   if(cart.length===0){
 
     items.innerHTML=`
+
       <div class="empty">
         🛒 Keranjang masih kosong.
       </div>
+
     `;
 
   }
@@ -1335,10 +2450,10 @@ function updateCart(){
 
   cart.forEach(item=>{
 
-    total+=
-      item.price*item.qty;
+    total +=
+      item.price * item.qty;
 
-    totalQty+=item.qty;
+    totalQty += item.qty;
 
 
     items.innerHTML+=`
@@ -1361,6 +2476,7 @@ function updateCart(){
           <div class="cart-name">
             ${item.name}
           </div>
+
 
           <div class="cart-price">
             ${rupiah(item.price)}
@@ -1403,9 +2519,10 @@ function updateCart(){
   });
 
 
-  count.innerText=totalQty;
+  count.innerText =
+    totalQty;
 
-  totalElement.innerText=
+  totalElement.innerText =
     rupiah(total);
 
 }
@@ -1419,27 +2536,28 @@ function changeQty(id,amount){
 
   const item =
     cart.find(
-      product=>product.id===id
+      product => product.id === id
     );
 
 
   if(!item)return;
 
 
-  item.qty+=amount;
+  item.qty += amount;
 
 
   if(item.qty<=0){
 
-    cart=
+    cart =
       cart.filter(
-        product=>product.id!==id
+        product => product.id !== id
       );
 
   }
 
 
   saveCart();
+
   updateCart();
 
 }
@@ -1451,13 +2569,14 @@ function changeQty(id,amount){
 
 function removeItem(id){
 
-  cart=
+  cart =
     cart.filter(
-      item=>item.id!==id
+      item => item.id !== id
     );
 
 
   saveCart();
+
   updateCart();
 
 }
@@ -1492,7 +2611,8 @@ function closeCart(){
 function closeCartOutside(event){
 
   if(
-    event.target.id==="cartOverlay"
+    event.target.id ===
+    "cartOverlay"
   ){
 
     closeCart();
@@ -1599,7 +2719,7 @@ function sendWhatsApp(){
   }
 
 
-  let pesan=
+  let pesan =
 `Halo ILUL STORE 👋
 
 Saya ingin memesan:
@@ -1613,12 +2733,12 @@ Saya ingin memesan:
   cart.forEach(item=>{
 
     const subtotal =
-      item.price*item.qty;
+      item.price * item.qty;
 
-    total+=subtotal;
+    total += subtotal;
 
 
-    pesan+=
+    pesan +=
 `• ${item.name}
   Jumlah: ${item.qty}
   Harga: ${rupiah(subtotal)}
@@ -1628,7 +2748,7 @@ Saya ingin memesan:
   });
 
 
-  pesan+=
+  pesan +=
 `Total: ${rupiah(total)}
 
 👤 Nama:
@@ -1643,19 +2763,16 @@ ${alamat}
 Mohon diproses. Terima kasih 🙏`;
 
 
-  /* ==========================
-     NOMOR WHATSAPP TOKO
-     083835969176
-     ========================== */
+  /* NOMOR WHATSAPP TOKO */
 
   const nomorToko =
     "6283835969176";
 
 
-  const url=
-    "https://wa.me/"+
-    nomorToko+
-    "?text="+
+  const url =
+    "https://wa.me/" +
+    nomorToko +
+    "?text=" +
     encodeURIComponent(pesan);
 
 
@@ -1694,4 +2811,3 @@ updateCart();
 
 </body>
 </html>
-```
